@@ -1,6 +1,5 @@
 extends Node2D
 
-
 var activo = false
 var porcentaje = 100
 var quitar_obstaculos = true

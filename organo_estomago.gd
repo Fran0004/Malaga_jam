@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var activo = false
+var activo = true
 var porcentaje = 100
 var mandar_globulos_blancos = true
 var parar_contador = false

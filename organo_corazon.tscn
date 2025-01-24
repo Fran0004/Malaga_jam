@@ -28,22 +28,26 @@ one_shot = true
 script = ExtResource("4_jmx66")
 
 [node name="porcentaje_timer_pancreas" type="Timer" parent="organo_pancreas"]
+wait_time = 0.6
 one_shot = true
 
 [node name="organo_estomago" type="Node2D" parent="."]
 script = ExtResource("5_7c7by")
 
 [node name="porcentaje_timer_estomago" type="Timer" parent="organo_estomago"]
+wait_time = 0.6
 one_shot = true
 
 [node name="organo_higado" type="Node2D" parent="."]
 script = ExtResource("6_mool3")
 
 [node name="porcentaje_timer_higado" type="Timer" parent="organo_higado"]
+wait_time = 0.6
 one_shot = true
 
 [node name="organo_riñones" type="Node2D" parent="."]
 script = ExtResource("7_2081d")
 
 [node name="porcentaje_timer_higado" type="Timer" parent="organo_riñones"]
+wait_time = 0.6
 one_shot = true
