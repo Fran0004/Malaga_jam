@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://qkdfawdwpnit"]
+
+[ext_resource type="Script" path="res://corazon.gd" id="1_l447a"]
+[ext_resource type="Script" path="res://organo_corazon.gd" id="2_5phpn"]
+[ext_resource type="Script" path="res://organo_cerebro.gd" id="3_r0t6c"]
+[ext_resource type="Script" path="res://organo_pancreas.gd" id="4_jmx66"]
+[ext_resource type="Script" path="res://organo_estomago.gd" id="5_7c7by"]
+
+[node name="organos" type="Node2D"]
+script = ExtResource("1_l447a")
+
+[node name="organo_corazon" type="Node2D" parent="."]
+script = ExtResource("2_5phpn")
+
+[node name="porcentaje_timer_corazon" type="Timer" parent="organo_corazon"]
+wait_time = 0.6
+one_shot = true
+
+[node name="organo_cerebro" type="Node2D" parent="."]
+script = ExtResource("3_r0t6c")
+
+[node name="porcentaje_timer_cerebro" type="Timer" parent="organo_cerebro"]
+one_shot = true
+
+[node name="organo_pancreas" type="Node2D" parent="."]
+script = ExtResource("4_jmx66")
+
+[node name="porcentaje_timer_pancreas" type="Timer" parent="organo_pancreas"]
+one_shot = true
+
+[node name="organo_estomago" type="Node2D" parent="."]
+script = ExtResource("5_7c7by")
+
+[node name="porcentaje_timer_estomago" type="Timer" parent="organo_estomago"]
+one_shot = true
