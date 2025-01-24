@@ -14,8 +14,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
 	porcentaje_timer_corazon.start()
+	aplicar_primer_debuff()
+	aplicar_segundo_debuff()
+	decrece_porcentaje()
+	desactivar_organo()
 	
 func aplicar_primer_debuff():
 	if 25 <= porcentaje <= 50:

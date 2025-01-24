@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://qkdfawdwpnit"]
+[gd_scene load_steps=8 format=3 uid="uid://cvp6m0iftetql"]
 
 [ext_resource type="Script" path="res://corazon.gd" id="1_l447a"]
 [ext_resource type="Script" path="res://organo_corazon.gd" id="2_5phpn"]

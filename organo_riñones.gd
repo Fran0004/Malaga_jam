@@ -13,8 +13,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
 	porcentaje_timer_riñones.start()
+	aplicar_debuff()
+	decrece_porcentaje()
+	desactivar_organo()
 	
 func aplicar_debuff():
 	if porcentaje <= 50:
