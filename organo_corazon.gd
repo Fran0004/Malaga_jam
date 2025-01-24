@@ -4,6 +4,7 @@ extends Node2D
 var activo = false
 var velocidad = 1
 var porcentaje = 100
+var parar_contador = false
 
 @onready var porcentaje_timer_corazon = $porcentaje_timer_corazon
 # Called when the node enters the scene tree for the first time.
@@ -24,7 +25,7 @@ func aplicar_segundo_debuff():
 		velocidad = velocidad * 0.5
 
 func decrece_porcentaje():
-	if activo == true and porcentaje_timer_corazon.time_left <= 0:
+	if activo == true and porcentaje_timer_corazon.time_left <= 0 and not parar_contador == true:
 		porcentaje -= 1
 		
 		

@@ -4,6 +4,7 @@ extends Node2D
 var activo = false
 var porcentaje = 100
 var mandar_globulos_blancos = true
+var parar_contador = false
 
 @onready var porcentaje_timer_estomago = $porcentaje_timer_estomago
 # Called when the node enters the scene tree for the first time.
@@ -21,7 +22,7 @@ func aplicar_debuff():
 		mandar_globulos_blancos = false
 
 func decrece_porcentaje():
-	if activo == true and porcentaje_timer_estomago.time_left <= 0:
+	if activo == true and porcentaje_timer_estomago.time_left <= 0 and not parar_contador == true:
 		porcentaje -= 1
 		
 		
