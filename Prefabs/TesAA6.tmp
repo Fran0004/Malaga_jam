@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://12lqa58204vf"]
+
+[ext_resource type="Texture2D" uid="uid://yrgfvd8dfnl4" path="res://Assets/Sprites/Character/image.png" id="1_1cumv"]
+[ext_resource type="PackedScene" uid="uid://du3n3tp1kn4xj" path="res://Prefabs/player.tscn" id="1_e22wt"]
+
+[node name="Mapa" type="Node2D"]
+
+[node name="Pulmones" type="Sprite2D" parent="."]
+position = Vector2(601, 286)
+texture = ExtResource("1_1cumv")
+
+[node name="Player" parent="." instance=ExtResource("1_e22wt")]
+position = Vector2(363, 228)
