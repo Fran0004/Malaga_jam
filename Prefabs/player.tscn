@@ -15,6 +15,7 @@ script = ExtResource("1_bsxht")
 SPEED = 5000.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
 
 [node name="Player Image" type="Sprite2D" parent="."]
 texture = ExtResource("1_1opac")

@@ -24,8 +24,8 @@ func _physics_process(delta: float) -> void:
 
 
 	#Interacciones personaje
-	if Input.is_action_just_pressed("trade"):
-		GameManager.trade_organ()
+	#if Input.is_action_just_pressed("trade"):
+		#GameManager.trade_organ()
 	# Movemos el personaje
 	move_and_slide()
 

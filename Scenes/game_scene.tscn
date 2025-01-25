@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://dgr40cv7cm0oe"]
+[gd_scene load_steps=3 format=3 uid="uid://dgr40cv7cm0oe"]
+
+[ext_resource type="PackedScene" uid="uid://bloo1xgg6cjq1" path="res://Prefabs/map.tscn" id="1_85csv"]
+[ext_resource type="PackedScene" uid="uid://du3n3tp1kn4xj" path="res://Prefabs/player.tscn" id="2_r4ihi"]
 
 [node name="Main" type="Node2D"]
+
+[node name="Map" parent="." instance=ExtResource("1_85csv")]
+
+[node name="Player" parent="." instance=ExtResource("2_r4ihi")]
+position = Vector2(681, 368)
+SPEED = 500.0

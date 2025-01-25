@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dpqq5gc1sh6ow" path="res://Assets/Sprites/Organs/6830679.png" id="1_induv"]
 [ext_resource type="Script" path="res://Scripts/Organs/Organs.gd" id="1_ukv7j"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xdch"]
-size = Vector2(268, 69)
+[sub_resource type="CircleShape2D" id="CircleShape2D_xe05k"]
+radius = 53.3385
 
 [node name="Organs" type="Sprite2D"]
 texture = ExtResource("1_induv")
@@ -14,8 +14,7 @@ Type = 6
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, 283)
-shape = SubResource("RectangleShape2D_8xdch")
+shape = SubResource("CircleShape2D_xe05k")
 
 [node name="StomachTimer" type="Timer" parent="."]
 wait_time = 30.0
