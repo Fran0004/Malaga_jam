@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6t164xi07fem"
-path="res://.godot/imported/Tileset_arterias.png-5bf647c4625183e021e96439c488d21f.ctex"
+uid="uid://bhi5h7oxfji5e"
+path="res://.godot/imported/estomago.webp-b19bad8a20a15606086d761650ed5a2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Map/Tileset_arterias.png"
-dest_files=["res://.godot/imported/Tileset_arterias.png-5bf647c4625183e021e96439c488d21f.ctex"]
+source_file="res://Assets/Sprites/Organs/estomago.webp"
+dest_files=["res://.godot/imported/estomago.webp-b19bad8a20a15606086d761650ed5a2f.ctex"]
 
 [params]
 
