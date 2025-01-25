@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Organs/Heart.gd" id="2_ju735"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdpdw"]
-size = Vector2(574, 750)
+size = Vector2(606, 830)
 
 [node name="Heart" type="Sprite2D"]
 texture = ExtResource("1_xk5ug")
@@ -13,5 +13,5 @@ script = ExtResource("2_ju735")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1, 50)
+position = Vector2(6, 94)
 shape = SubResource("RectangleShape2D_mdpdw")

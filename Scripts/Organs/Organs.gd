@@ -49,7 +49,7 @@ func _process(delta: float) -> void:
 	match Type:
 		OrganType.NONE:
 			pass
-		OrganType.NONE:
+		OrganType.HEART:
 			update_heart()
 		OrganType.BRAIN:
 			update_brain(delta)
@@ -61,6 +61,8 @@ func _process(delta: float) -> void:
 			update_pancreas()
 		OrganType.STOMACH:
 			update_stomach()
+			spawn_white_cells()
+	drain_organ_energy(delta)
 	check_victory(delta)
 	
 
