@@ -1,13 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://sprhrij66rk5"]
+[gd_scene load_steps=3 format=3 uid="uid://sprhrij66rk5"]
 
-[ext_resource type="Texture2D" uid="uid://dpqq5gc1sh6ow" path="res://Assets/Sprites/Organs/6830679.png" id="1_induv"]
 [ext_resource type="Script" path="res://Scripts/Organs/Organs.gd" id="1_ukv7j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xe05k"]
 radius = 53.3385
 
 [node name="Organs" type="Sprite2D"]
-texture = ExtResource("1_induv")
 script = ExtResource("1_ukv7j")
 Type = 6
 
