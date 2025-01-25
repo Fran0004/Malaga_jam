@@ -7,7 +7,7 @@
 
 [sub_resource type="Animation" id="Animation_dor6q"]
 resource_name = "Logo"
-length = 0.5
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -15,10 +15,10 @@ tracks/0/path = NodePath("RushLogoMainMenu:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0.3, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1520, 125), Vector2(640, 125)]
+"values": [Vector2(-340, 125), Vector2(640, 125)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -27,10 +27,10 @@ tracks/1/path = NodePath("GlobLogoMainMenu:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-240, 125), Vector2(640, 125)]
+"values": [Vector2(1620, 125), Vector2(640, 125)]
 }
 
 [sub_resource type="Animation" id="Animation_5vkyr"]
