@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6t164xi07fem"
-path="res://.godot/imported/Tileset_arterias.png-5bf647c4625183e021e96439c488d21f.ctex"
+uid="uid://cswmm3p52mk2i"
+path="res://.godot/imported/pancrea.png-041b042d98fa748c5d557cd6f29883ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Map/Tileset_arterias.png"
-dest_files=["res://.godot/imported/Tileset_arterias.png-5bf647c4625183e021e96439c488d21f.ctex"]
+source_file="res://Assets/Sprites/Organs/pancrea.png"
+dest_files=["res://.godot/imported/pancrea.png-041b042d98fa748c5d557cd6f29883ef.ctex"]
 
 [params]
 
