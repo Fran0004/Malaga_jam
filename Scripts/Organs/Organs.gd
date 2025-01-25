@@ -29,7 +29,7 @@ var time_with_all_organs_active: float = 0.0  # Tiempo con todos los órganos ac
 @export var victory_time: float = 30.0  # Tiempo necesario para ganar
 @export var Type = OrganType.NONE
 
-# Called when the node enters the scene tree for the first time.
+# Enum de todos los órganos
 enum OrganType{
 	NONE,
 	HEART,

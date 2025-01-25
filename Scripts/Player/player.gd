@@ -7,6 +7,7 @@ var oxygen_carried: int = 0  # Oxígeno que lleva actualmente
 @export var base_speed: float = 300.0  # Velocidad base
 var current_speed: float = base_speed  # Velocidad actual (modificable por buffs)
 
+
 func _physics_process(delta: float):
 	# Movimiento básico con WASD
 	var velocity = Vector2.ZERO

@@ -1,9 +1,6 @@
 extends Node
 var heart_health = 100
 @export var Type = OrganType.NONE
-# Called when the node enters the scene tree for the first time.
-
-
 enum OrganType{
 	NONE,
 	HEART,
@@ -14,14 +11,15 @@ enum OrganType{
 	STOMACH
 }
 
-
 func _ready() -> void:
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	update_heart()
+	match Type:
+		OrganType.HEART:
+			update_heart()
 
 func update_heart() -> void:
 	# Corazón: Afecta la velocidad del glóbulo
