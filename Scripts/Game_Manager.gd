@@ -81,15 +81,24 @@ func spawn_white_cells() -> void:
 	#var white_cell = preload("res://path_to_white_cell_scene.tscn").instantiate()
 	#white_cell.global_position = get_node("Globulo").global_position
 	#add_child(white_cell)
-	print("Glóbulo blanco generado para curar")
+	print("Glóbulo blanco generado para llevar más oxígeno")
 
 func update_pancreas() -> void:
 	# Páncreas: Bloquea rutas cortas si su salud es baja
 	if pancreas_health < 30:
 		for route in short_routes:
-			route.block()
+			short_routes[route] = "Closed"
 			print("Ruta corta bloqueada debido al páncreas")
-
+			
+func shortcut_open():
+	for route in short_routes:
+		if not short_routes[route] == "Closed":
+			get_node("ClosedDoorCollision").visible = false
+			get_node("ClosedDoorCollision").disabled = false
+		else:
+			get_node("ClosedDoorCollision").visible = true
+			get_node("ClosedDoorCollision").disabled = true
+	
 func update_heart() -> void:
 	# Corazón: Afecta la velocidad del glóbulo
 	var globulo = get_node("Globulo")

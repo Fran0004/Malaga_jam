@@ -33,4 +33,7 @@ func spawn_white_cells() -> void:
 	#var white_cell = preload("res://path_to_white_cell_scene.tscn").instantiate()
 	#white_cell.global_position = get_node("Globulo").global_position
 	#add_child(white_cell)
-	print("Glóbulo blanco generado para curar")
+	print("Glóbulo blanco generado para llevar más oxígeno")
+	
+	
+	

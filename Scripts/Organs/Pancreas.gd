@@ -22,10 +22,21 @@ func _process(delta: float) -> void:
 	match Type:
 		OrganType.STOMACH:
 			update_pancreas()
+			shortcut_open()
 
-func update_pancreas():
+func update_pancreas() -> void:
 	# Páncreas: Bloquea rutas cortas si su salud es baja
 	if pancreas_health < 30:
 		for route in short_routes:
-			route.block()
+			short_routes[route] = "Closed"
 			print("Ruta corta bloqueada debido al páncreas")
+			
+func shortcut_open():
+	for route in short_routes:
+		if not short_routes[route] == "Closed":
+			get_node("ClosedDoorCollision").visible = false
+			get_node("ClosedDoorCollision").disabled = false
+		else:
+			get_node("ClosedDoorCollision").visible = true
+			get_node("ClosedDoorCollision").disabled = true
+			
