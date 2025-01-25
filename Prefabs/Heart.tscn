@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxbmqhh7wty4v"]
+
+[ext_resource type="Texture2D" uid="uid://q2kqbtury4y3" path="res://Assets/Sprites/Organs/Heart_anterior_exterior_view.png" id="1_xk5ug"]
+[ext_resource type="Script" path="res://Scripts/Organs/Heart.gd" id="2_ju735"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdpdw"]
+size = Vector2(606, 830)
+
+[node name="Heart" type="Sprite2D"]
+texture = ExtResource("1_xk5ug")
+script = ExtResource("2_ju735")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(6, 94)
+shape = SubResource("RectangleShape2D_mdpdw")
