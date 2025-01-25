@@ -2,6 +2,7 @@ extends Node
 
 #Variables del player
 var oxigen_player: int = 0
+var max_oxigen_player: int = 10
 var key_sprite_show: bool = false
 
 # Variables de salud de los órganos

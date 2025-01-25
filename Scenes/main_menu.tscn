@@ -62,6 +62,7 @@ theme = ExtResource("2_bb0k8")
 text = "Play"
 
 [node name="OptionsButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 573.0
 offset_top = 624.0
 offset_right = 884.0

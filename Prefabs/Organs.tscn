@@ -12,3 +12,8 @@ Type = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_8xdch")
+
+[node name="StomachTimer" type="Timer" parent="."]
+wait_time = 30.0
+
+[connection signal="timeout" from="StomachTimer" to="." method="_on_stomach_timer_timeout"]
