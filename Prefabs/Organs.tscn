@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://sprhrij66rk5"]
+[gd_scene load_steps=3 format=3 uid="uid://sprhrij66rk5"]
 
-[node name="Organs" type="Node2D"]
+[ext_resource type="Script" path="res://Scripts/Organs/Organs.gd" id="1_ukv7j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xdch"]
+
+[node name="Organs" type="Sprite2D"]
+script = ExtResource("1_ukv7j")
+Type = 6
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_8xdch")
