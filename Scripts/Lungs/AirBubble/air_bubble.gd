@@ -5,6 +5,7 @@ var speed : float
 var direction : float
 var velocity : Vector2
 @onready var spawn_point = $Pulmones/SpawnPoint
+@onready var pulmones = $Pulmones
 var testing = preload("res://Prefabs/Testing.tscn")
 # Circular room properties (radius from center)
 @export var room_radius : float = 400.0    # Circle radius
@@ -22,3 +23,10 @@ func spawn_bubble():
 	
 func set_initial_position(pos: Vector2):
 	pos -= Vector2(randi_range(-50, 50), randi_range(-50, 50))
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		self.queue_free()
+	
+	

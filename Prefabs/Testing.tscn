@@ -30,5 +30,8 @@ autostart = true
 [node name="Player" parent="." instance=ExtResource("1_e22wt")]
 position = Vector2(363, 228)
 
+[connection signal="area_entered" from="Pulmones/Area2D" to="Pulmones" method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Pulmones/Area2D" to="Pulmones" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Pulmones/Area2D" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Pulmones/Area2D" to="Player" method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Pulmones/bubbleTimer" to="Pulmones" method="_on_bubble_timer_timeout"]
