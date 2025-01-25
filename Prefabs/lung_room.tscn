@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://c5fq4tx7nbvyi"]
 
-[ext_resource type="Texture2D" uid="uid://5j8i181k7clw" path="res://Assets/Sprites/Lungs/room.png" id="1_ecbbg"]
+[ext_resource type="Texture2D" uid="uid://dvjjhlgwqrw0r" path="res://Assets/Sprites/Lungs/room.png" id="1_ecbbg"]
 [ext_resource type="Script" path="res://Scripts/Lungs/lung_room.gd" id="1_sgc1s"]
 [ext_resource type="PackedScene" uid="uid://ff32dm2o4ssw" path="res://Prefabs/air_bubble.tscn" id="2_3mtcb"]
-[ext_resource type="Texture2D" uid="uid://daqdqvtblmx31" path="res://Assets/Sprites/Lungs/lungs.png" id="3_sctmp"]
+[ext_resource type="Texture2D" uid="uid://d1utrp78wirwo" path="res://Assets/Sprites/Lungs/lungs.png" id="3_sctmp"]
 [ext_resource type="PackedScene" uid="uid://bul61gqsyfd0v" path="res://Prefabs/player_test.tscn" id="4_nti6m"]
 
 [node name="lung_room" type="Node2D"]
