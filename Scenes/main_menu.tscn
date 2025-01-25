@@ -1,72 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3jlbpgmk8ie7"]
+[gd_scene load_steps=3 format=3 uid="uid://b3jlbpgmk8ie7"]
 
-[ext_resource type="FontFile" uid="uid://djgnsrux2m0cq" path="res://Assets/Fonts/Mleitod Personal Use Only.ttf" id="1_qxm0b"]
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_uxo7o"]
 [ext_resource type="Theme" uid="uid://vydp5cpe6ed" path="res://Assets/Theme/MainMenuTheme.tres" id="2_bb0k8"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_scnmp"]
-font = ExtResource("1_qxm0b")
-font_size = 196
-font_color = Color(1, 0.180392, 0.290196, 1)
-outline_size = 2
-outline_color = Color(1, 0.109804, 0.678431, 1)
-shadow_color = Color(0.517647, 0, 0, 1)
-
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Panel"]
 texture_filter = 1
-layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_bb0k8")
 script = ExtResource("1_uxo7o")
-
-[node name="Title" type="Label" parent="."]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -442.0
-offset_top = 123.0
-offset_right = -198.0
-offset_bottom = 219.0
-grow_horizontal = 2
-text = "Glob
-"
-label_settings = SubResource("LabelSettings_scnmp")
-
-[node name="Title2" type="Label" parent="."]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 60.0
-offset_top = 244.0
-offset_right = 559.0
-offset_bottom = 440.0
-grow_horizontal = 2
-text = "Rush
-"
-label_settings = SubResource("LabelSettings_scnmp")
 
 [node name="PlayButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 290.0
-offset_top = 476.0
-offset_right = 466.0
-offset_bottom = 551.0
+offset_left = 405.0
+offset_top = 314.0
+offset_right = 581.0
+offset_bottom = 408.0
 theme = ExtResource("2_bb0k8")
 text = "Play"
 
 [node name="OptionsButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 573.0
-offset_top = 624.0
-offset_right = 884.0
-offset_bottom = 672.0
+offset_left = 567.0
+offset_top = 571.0
+offset_right = 878.0
+offset_bottom = 619.0
 theme = ExtResource("2_bb0k8")
 theme_override_font_sizes/font_size = 48
 text = "OPTIONS"
