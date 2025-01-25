@@ -40,3 +40,5 @@ func shortcut_open():
 			get_node("ClosedDoorCollision").visible = true
 			get_node("ClosedDoorCollision").disabled = true
 			
+			
+			

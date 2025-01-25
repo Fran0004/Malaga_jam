@@ -75,13 +75,14 @@ func drain_organ_energy(delta: float) -> void:
 func update_stomach() -> void:
 	# Estómago: Genera glóbulos blancos que curan al personaje
 	if stomach_health > 0:
-		spawn_white_cells()
+		spawn_nutrients()
 
-func spawn_white_cells() -> void:
-	#var white_cell = preload("res://path_to_white_cell_scene.tscn").instantiate()
-	#white_cell.global_position = get_node("Globulo").global_position
-	#add_child(white_cell)
-	print("Glóbulo blanco generado para llevar más oxígeno")
+func spawn_nutrients() -> void:
+	#wip
+	var nutrient = preload("res://Prefabs/Nutrient.tscn").instantiate()
+	nutrient.global_position = get_node("Nutrient").global_position
+	add_child(nutrient)
+	print("Nutrientes generados para llevar más oxígeno")
 
 func update_pancreas() -> void:
 	# Páncreas: Bloquea rutas cortas si su salud es baja
