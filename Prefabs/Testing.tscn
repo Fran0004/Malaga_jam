@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://12lqa58204vf"]
+[gd_scene load_steps=5 format=3 uid="uid://12lqa58204vf"]
 
 [ext_resource type="Texture2D" uid="uid://yrgfvd8dfnl4" path="res://Assets/Sprites/Character/image.png" id="1_1cumv"]
 [ext_resource type="PackedScene" uid="uid://du3n3tp1kn4xj" path="res://Prefabs/player.tscn" id="1_e22wt"]
+[ext_resource type="PackedScene" uid="uid://dxbmqhh7wty4v" path="res://Prefabs/Heart.tscn" id="3_dbp2r"]
+[ext_resource type="PackedScene" uid="uid://bnggblvjuubpp" path="res://Prefabs/Brain.tscn" id="4_hprym"]
 
 [node name="Mapa" type="Node2D"]
 
@@ -11,3 +13,8 @@ texture = ExtResource("1_1cumv")
 
 [node name="Player" parent="." instance=ExtResource("1_e22wt")]
 position = Vector2(363, 228)
+
+[node name="Heart" parent="." instance=ExtResource("3_dbp2r")]
+position = Vector2(-658, 457)
+
+[node name="Brain" parent="." instance=ExtResource("4_hprym")]

@@ -1,7 +1,20 @@
 extends Node
-
 var heart_health = 100
+@export var Type = OrganType.NONE
 # Called when the node enters the scene tree for the first time.
+
+
+enum OrganType{
+	NONE,
+	HEART,
+	BRAIN,
+	KIDNEYS,
+	LIVER,
+	PANCREAS,
+	STOMACH
+}
+
+
 func _ready() -> void:
 	pass # Replace with function body.
 
@@ -18,3 +31,5 @@ func update_heart() -> void:
 		print("Velocidad reducida por baja salud del corazón")
 	else:
 		globulo.current_speed = globulo.base_speed
+		
+		
