@@ -4,39 +4,21 @@ extends Area2D
 var speed : float
 var direction : float
 var velocity : Vector2
-
+@onready var spawn_point = $Pulmones/SpawnPoint
+var testing = preload("res://Prefabs/Testing.tscn")
 # Circular room properties (radius from center)
 @export var room_radius : float = 400.0    # Circle radius
 @export var room_center : Vector2 = Vector2(200, 100)  # Center of circular area
 
 func _ready():
-	randomize_velocity()
-
+	pass
 func _process(delta):
-	position += velocity * delta
-	check_circular_boundary()
-
-func randomize_velocity():
-	# Random speed between 50-200 pixels/second
-	speed = randf_range(50, 200)
+	pass
 	
-	# Random direction (0-360 degrees)
-	direction = randf_range(0, 360)
+func spawn_bubble():
+	var spawn_point_bubble = preload("res://Prefabs/Testing.tscn").instantiate()
+	add_child(spawn_point_bubble)
 	
-	# Convert to velocity vector
-	velocity = Vector2.from_angle(deg_to_rad(direction)) * speed
-
-func check_circular_boundary():
-	var to_center = position - room_center
-	var distance_from_center = to_center.length()
 	
-	if distance_from_center > room_radius:
-		# Calculate reflection using normal vector pointing out from circle
-		var normal = to_center.normalized()
-		randomize_velocity()
-		
-		# Position correction to keep inside circle
-		position = room_center + normal * room_radius * 0.95
-
 func set_initial_position(pos: Vector2):
-	position = pos
+	pos -= Vector2(randi_range(-50, 50), randi_range(-50, 50))

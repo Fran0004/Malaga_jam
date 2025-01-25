@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://12lqa58204vf"]
+[gd_scene load_steps=5 format=3 uid="uid://12lqa58204vf"]
 
 [ext_resource type="Texture2D" uid="uid://yrgfvd8dfnl4" path="res://Assets/Sprites/Character/image.png" id="1_1cumv"]
 [ext_resource type="PackedScene" uid="uid://du3n3tp1kn4xj" path="res://Prefabs/player.tscn" id="1_e22wt"]
+[ext_resource type="Script" path="res://Scripts/pulmones.gd" id="2_eumy6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57cuj"]
 size = Vector2(385, 366)
@@ -11,12 +12,16 @@ size = Vector2(385, 366)
 [node name="Pulmones" type="Sprite2D" parent="."]
 position = Vector2(601, 286)
 texture = ExtResource("1_1cumv")
+script = ExtResource("2_eumy6")
 
 [node name="Area2D" type="Area2D" parent="Pulmones"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pulmones/Area2D"]
 position = Vector2(-715.5, 327)
 shape = SubResource("RectangleShape2D_57cuj")
+
+[node name="Spawnpoint" type="Node2D" parent="Pulmones"]
+position = Vector2(37, 33)
 
 [node name="Player" parent="." instance=ExtResource("1_e22wt")]
 position = Vector2(363, 228)
