@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bloo1xgg6cjq1"]
+
+[node name="Map" type="Node2D"]
+texture_filter = 1
+
+[node name="Background" type="TileMapLayer" parent="."]

@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://dyw220r20tsvl"]
+
+[ext_resource type="Texture2D" uid="uid://dvt384vcrf32w" path="res://Hud/body hud/body hud.png" id="1_34yu5"]
+[ext_resource type="Texture2D" uid="uid://d2qw6rr3buuoi" path="res://Hud/body hud/alert brain.png" id="2_kilr4"]
+[ext_resource type="Texture2D" uid="uid://bt5wtxx7ffej3" path="res://Hud/body hud/alert heart.png" id="3_k6qio"]
+[ext_resource type="Texture2D" uid="uid://d21ga2v1avaf6" path="res://Hud/body hud/alert kidney.png" id="4_t1g23"]
+[ext_resource type="Texture2D" uid="uid://j5cegyj5ldvi" path="res://Hud/body hud/alert liver.png" id="5_fbywe"]
+[ext_resource type="Texture2D" uid="uid://dr52uporgknql" path="res://Hud/body hud/alert pancreas.png" id="6_7h157"]
+[ext_resource type="Texture2D" uid="uid://b67kji3nsmtr6" path="res://Hud/body hud/alert stomach.png" id="7_6mfhc"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BodyHud" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1280, 720)
+scale = Vector2(1.625, 1.625)
+texture = ExtResource("1_34yu5")
+offset = Vector2(-64, -64)
+
+[node name="AlertBrain" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(1280, 720)
+scale = Vector2(1.625, 1.625)
+texture = ExtResource("2_kilr4")
+offset = Vector2(-64, -64)
+
+[node name="AlertHeart" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(1280, 720)
+scale = Vector2(1.625, 1.625)
+texture = ExtResource("3_k6qio")
+offset = Vector2(-64, -64)
+
+[node name="AlertKidney" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(1280, 720)
+scale = Vector2(1.625, 1.625)
+texture = ExtResource("4_t1g23")
+offset = Vector2(-64, -64)
+
+[node name="AlertLiver" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(1280, 720)
+scale = Vector2(1.625, 1.625)
+texture = ExtResource("5_fbywe")
+offset = Vector2(-64, -64)
+
+[node name="AlertPancreas" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(1280, 720)
+scale = Vector2(1.625, 1.625)
+texture = ExtResource("6_7h157")
+offset = Vector2(-64, -64)
+
+[node name="AlertStomach" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(1280, 720)
+scale = Vector2(1.625, 1.625)
+texture = ExtResource("7_6mfhc")
+offset = Vector2(-64, -64)
