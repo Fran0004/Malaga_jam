@@ -1,7 +1,70 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3jlbpgmk8ie7"]
+[gd_scene load_steps=8 format=3 uid="uid://b3jlbpgmk8ie7"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_uxo7o"]
 [ext_resource type="Theme" uid="uid://vydp5cpe6ed" path="res://Assets/Theme/MainMenuTheme.tres" id="2_bb0k8"]
+[ext_resource type="Texture2D" uid="uid://cyej45m8nue85" path="res://Hud/main menu/glob logo main menu.png" id="3_x6toh"]
+[ext_resource type="Texture2D" uid="uid://crlcpdkqma68h" path="res://Hud/main menu/rush logo main menu.png" id="4_fqu00"]
+
+[sub_resource type="Animation" id="Animation_dor6q"]
+resource_name = "Logo"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RushLogoMainMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1520, 125), Vector2(640, 125)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GlobLogoMainMenu:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-240, 125), Vector2(640, 125)]
+}
+
+[sub_resource type="Animation" id="Animation_5vkyr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RushLogoMainMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1520, 125)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GlobLogoMainMenu:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-240, 125)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ygtp"]
+_data = {
+"Logo": SubResource("Animation_dor6q"),
+"RESET": SubResource("Animation_5vkyr")
+}
 
 [node name="MainMenu" type="Panel"]
 texture_filter = 1
@@ -31,5 +94,20 @@ offset_bottom = 619.0
 theme = ExtResource("2_bb0k8")
 theme_override_font_sizes/font_size = 48
 text = "OPTIONS"
+
+[node name="RushLogoMainMenu" type="Sprite2D" parent="."]
+position = Vector2(1520, 125)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_fqu00")
+
+[node name="GlobLogoMainMenu" type="Sprite2D" parent="."]
+position = Vector2(-240, 125)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_x6toh")
+
+[node name="MenuAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6ygtp")
+}
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
