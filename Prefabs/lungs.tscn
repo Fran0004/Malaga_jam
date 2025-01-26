@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dllay3rejrrfg"]
+
+[ext_resource type="Script" path="res://Lungs.gd" id="1_s083t"]
+[ext_resource type="Texture2D" uid="uid://bpxcfhc83oc22" path="res://Assets/Sprites/Organs/pulmones.png" id="1_xvqbg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yy2fi"]
+
+[node name="Pulmones" type="Area2D"]
+script = ExtResource("1_s083t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xvqbg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.73)
+scale = Vector2(5.99, 4.105)
+shape = SubResource("RectangleShape2D_yy2fi")

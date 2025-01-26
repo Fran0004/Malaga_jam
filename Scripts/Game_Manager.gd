@@ -7,12 +7,12 @@ var key_sprite_show: bool = false
 
 # Variables de salud de los órganos
 @export var organs_health: Dictionary = {
-	"brain": {"current": 10.0, "max": 10.0},
-	"stomach": {"current": 10.0, "max": 10.0},
-	"pancreas": {"current": 10.0, "max": 10.0},
-	"kidneys": {"current": 10.0, "max": 10.0},
-	"liver": {"current": 10.0, "max": 10.0},
-	"heart": {"current": 10.0, "max": 10.0}
+	"brain": {"current": 10.0, "max": 10.0, 'protected': false},
+	"stomach": {"current": 10.0, "max": 10.0, 'protected': false},
+	"pancreas": {"current": 3.0, "max": 10.0, 'protected': false},
+	"kidneys": {"current": 10.0, "max": 10.0, 'protected': false},
+	"liver": {"current": 10.0, "max": 10.0, 'protected': false},
+	"heart": {"current": 10.0, "max": 10.0, 'protected': false}
 }
 
 var heal_organ_amount: float = 0.33
@@ -23,8 +23,6 @@ var pancreas_percentage: float
 var kidneys_percentage: float 
 var liver_percentage: float 
 var heart_percentage: float 
-
-
 
 #Buff activables
 var brain_buff: bool = false

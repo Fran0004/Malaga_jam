@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://bytdsln2n1q1r"]
+
+[ext_resource type="PackedScene" uid="uid://bnggblvjuubpp" path="res://Prefabs/Brain.tscn" id="1_xfmtc"]
+[ext_resource type="Script" path="res://Scripts/Organs/Brains.gd" id="2_lsefg"]
+[ext_resource type="PackedScene" uid="uid://dxbmqhh7wty4v" path="res://Prefabs/Heart.tscn" id="2_pbq6l"]
+[ext_resource type="PackedScene" uid="uid://ddonx5k4sp274" path="res://Prefabs/Kidneys.tscn" id="3_ubnc3"]
+[ext_resource type="PackedScene" uid="uid://d1oncdpnfsswh" path="res://Prefabs/Liver.tscn" id="4_3anun"]
+[ext_resource type="PackedScene" uid="uid://c1c73t1jqqrig" path="res://Prefabs/Pancreas.tscn" id="5_m4dbw"]
+[ext_resource type="PackedScene" uid="uid://bnky3iripexoj" path="res://Prefabs/Stomach.tscn" id="6_jni5j"]
+[ext_resource type="PackedScene" uid="uid://dllay3rejrrfg" path="res://Prefabs/lungs.tscn" id="7_1m0dl"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Brain" parent="." instance=ExtResource("1_xfmtc")]
+position = Vector2(631, 76)
+scale = Vector2(0.09, 0.09)
+script = ExtResource("2_lsefg")
+type = null
+
+[node name="Heart" parent="." instance=ExtResource("2_pbq6l")]
+position = Vector2(781, 280)
+scale = Vector2(0.08, 0.08)
+
+[node name="Kidneys" parent="." instance=ExtResource("3_ubnc3")]
+position = Vector2(624, 467)
+scale = Vector2(0.17, 0.17)
+
+[node name="Liver" parent="." instance=ExtResource("4_3anun")]
+position = Vector2(774, 408)
+scale = Vector2(1.23, 1.23)
+
+[node name="Pancreas" parent="." instance=ExtResource("5_m4dbw")]
+position = Vector2(629, 588)
+scale = Vector2(0.915, 0.915)
+
+[node name="Stomach" parent="." instance=ExtResource("6_jni5j")]
+position = Vector2(482, 354)
+
+[node name="Pulmones" parent="." instance=ExtResource("7_1m0dl")]
+position = Vector2(632, 282)

@@ -25,6 +25,12 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="viewport"
 
+[global_group]
+
+player="player"
+side-doors=""
+main-doors=""
+
 [input]
 
 move_up={

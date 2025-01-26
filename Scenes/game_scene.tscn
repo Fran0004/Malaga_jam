@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dgr40cv7cm0oe"]
+[gd_scene load_steps=13 format=3 uid="uid://dgr40cv7cm0oe"]
 
 [ext_resource type="PackedScene" uid="uid://bloo1xgg6cjq1" path="res://Prefabs/map.tscn" id="1_85csv"]
 [ext_resource type="PackedScene" uid="uid://du3n3tp1kn4xj" path="res://Prefabs/player.tscn" id="2_r4ihi"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://xwbdq6snjks" path="res://Assets/Sprites/Organs/pancrea.png" id="8_kswur"]
 [ext_resource type="Texture2D" uid="uid://dx0o5mmk45pr3" path="res://Assets/Sprites/Organs/higado.png" id="9_gl5yr"]
 [ext_resource type="Texture2D" uid="uid://damtfk5ixl45h" path="res://Assets/Sprites/Organs/corazon.png" id="10_n0der"]
+[ext_resource type="PackedScene" uid="uid://5ycy1fbsb24f" path="res://Prefabs/Door.tscn" id="12_s36bb"]
 
 [node name="Main" type="Node2D"]
 texture_filter = 1
@@ -21,7 +22,6 @@ texture_filter = 1
 z_index = 1
 position = Vector2(681, 368)
 scale = Vector2(1, 1)
-SPEED = 400.0
 
 [node name="Lungs" parent="." instance=ExtResource("3_b4ni0")]
 position = Vector2(1186, 204)
@@ -76,3 +76,140 @@ scale = Vector2(4.28125, 4.28125)
 texture = ExtResource("10_n0der")
 Type = 1
 organName = "heart"
+
+[node name="Door" parent="." groups=["main-doors"] instance=ExtResource("12_s36bb")]
+position = Vector2(1191, -559)
+scale = Vector2(2.3, 2.3)
+door_type = "main-doors"
+
+[node name="Door2" parent="." groups=["main-doors"] instance=ExtResource("12_s36bb")]
+position = Vector2(1306, -571)
+rotation = 3.14159
+scale = Vector2(2.3, 2.3)
+door_id = 1
+door_type = "main-doors"
+
+[node name="Door3" parent="." groups=["main-doors"] instance=ExtResource("12_s36bb")]
+position = Vector2(1886, -466)
+rotation = 1.5708
+scale = Vector2(1.945, 1.945)
+door_id = 2
+door_type = "main-doors"
+
+[node name="Door4" parent="." groups=["side-doors"] instance=ExtResource("12_s36bb")]
+position = Vector2(10, -428)
+rotation = 1.5708
+scale = Vector2(2.955, 2.955)
+door_id = 19
+door_type = "side-doors"
+
+[node name="Door5" parent="." groups=["side-doors"] instance=ExtResource("12_s36bb")]
+position = Vector2(-346, 180)
+rotation = 1.5708
+scale = Vector2(2.1, 2.1)
+door_id = 18
+door_type = "side-doors"
+
+[node name="Door6" parent="." groups=["side-doors"] instance=ExtResource("12_s36bb")]
+position = Vector2(-334, 285)
+rotation = 4.71239
+scale = Vector2(2.1, 2.1)
+door_id = 17
+door_type = "side-doors"
+
+[node name="Door7" parent="." groups=["main-doors"] instance=ExtResource("12_s36bb")]
+position = Vector2(427, 906)
+rotation = 0.954695
+scale = Vector2(2.3, 2.3)
+door_id = 6
+door_type = "main-doors"
+
+[node name="Door8" parent="." groups=["main-doors"] instance=ExtResource("12_s36bb")]
+position = Vector2(1206, 1261)
+rotation = 2.41903
+scale = Vector2(2.5, 2.5)
+door_id = 5
+door_type = "main-doors"
+
+[node name="Door9" parent="." groups=["main-doors"] instance=ExtResource("12_s36bb")]
+position = Vector2(1963, 801)
+rotation = 2.34223
+scale = Vector2(2.2, 2.2)
+door_id = 4
+door_type = "main-doors"
+
+[node name="Door10" parent="." groups=["main-doors"] instance=ExtResource("12_s36bb")]
+position = Vector2(2147, 69)
+rotation = 1.26187
+scale = Vector2(3.05, 3.05)
+door_id = 3
+door_type = "main-doors"
+
+[node name="Door11" parent="." groups=["side-doors"] instance=ExtResource("12_s36bb")]
+position = Vector2(45.0001, 1204)
+rotation = 1.07687
+scale = Vector2(3.29, 3.29)
+door_id = 15
+door_type = "side-doors"
+
+[node name="Door12" parent="." groups=["side-doors"] instance=ExtResource("12_s36bb")]
+position = Vector2(2389, 489)
+scale = Vector2(3, 3)
+door_id = 11
+door_type = "side-doors"
+
+[node name="Door13" parent="." groups=["main-doors"] instance=ExtResource("12_s36bb")]
+position = Vector2(990, -533)
+rotation = 2.37365
+scale = Vector2(1.43, 1.43)
+door_id = 8
+door_type = "main-doors"
+
+[node name="Door14" parent="." groups=["side-doors"] instance=ExtResource("12_s36bb")]
+position = Vector2(2185, -979)
+rotation = 4.71239
+scale = Vector2(3, 3)
+door_id = 10
+door_type = "side-doors"
+
+[node name="Door15" parent="." groups=["main-doors"] instance=ExtResource("12_s36bb")]
+position = Vector2(357, 48)
+rotation = 4.71239
+scale = Vector2(3.1, 3.1)
+door_id = 7
+door_type = "main-doors"
+
+[node name="Door16" parent="." groups=["side-doors"] instance=ExtResource("12_s36bb")]
+position = Vector2(1760, 1551)
+rotation = 0.954695
+scale = Vector2(2.3, 2.3)
+door_id = 12
+door_type = "side-doors"
+
+[node name="Door17" parent="." groups=["side-doors"] instance=ExtResource("12_s36bb")]
+position = Vector2(348, 1909)
+rotation = 1.07687
+scale = Vector2(3.29, 3.29)
+door_id = 14
+door_type = "side-doors"
+
+[node name="Door18" parent="." groups=["side-doors"] instance=ExtResource("12_s36bb")]
+position = Vector2(-265, 910)
+rotation = 1.74009
+scale = Vector2(3.1, 3.1)
+door_id = 16
+door_type = "side-doors"
+
+[node name="Door19" parent="." groups=["side-doors"] instance=ExtResource("12_s36bb")]
+position = Vector2(171, -1079)
+rotation = 0.722566
+scale = Vector2(2.2, 2.2)
+door_id = 9
+door_type = "side-doors"
+
+[node name="Door20" parent="." groups=["side-doors"] instance=ExtResource("12_s36bb")]
+position = Vector2(990, 1449)
+rotation = 2.63021
+scale = Vector2(3.6, 3.6)
+door_id = 13
+door_type = "side-doors"
