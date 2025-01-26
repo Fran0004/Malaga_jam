@@ -94,8 +94,13 @@ func update_stomach() -> void:
 	if GameManager.stomach_percentage > 50:	# Verifica si el temporizador está en marcha
 		GameManager.stomach_debuff = false
 		GameManager.stomach_buff = true
-		if not stomach_timer.is_stopped():
-			return  # Salimos si el temporizador ya está corriendo
+	else:
+		GameManager.stomach_debuff = true
+		GameManager.stomach_buff = false
+		
+	
+		#if not stomach_timer.is_stopped():
+			#return  # Salimos si el temporizador ya está corriendo
 
 		# Inicia el temporizador para generar proteínas
 		stomach_timer.start()
