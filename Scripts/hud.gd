@@ -39,3 +39,4 @@ func _process(delta: float) -> void:
 	liver_label.text = "%.2f" % GameManager.liver_percentage +"%"
 	pancreas_label.text = "%.2f" % GameManager.pancreas_percentage +"%"
 	kidneys_label.text = "%.2f" % GameManager.kidneys_percentage +"%"
+	

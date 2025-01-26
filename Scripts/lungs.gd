@@ -31,7 +31,6 @@ func _on_bubble_timer_timeout() -> void:
 	
 
 func _on_area_2d_area_entered(air_bubble: Area2D) -> void:
-	
 	current_bubbles -= 1
 
 
