@@ -151,6 +151,7 @@ func update_brain() -> void:
 		GameManager.person_visible = true
 		GameManager.labels_visible = true
 	if GameManager.brain_percentage <= 0:
+		get_tree().reload_current_scene()
 		print("¡Game Over! El cerebro ha fallado")
 		
 
@@ -173,13 +174,14 @@ func check_victory(delta: float) -> void:
 		time_with_all_organs_above_50 += delta  # Incrementa el tiempo acumulado
 		if time_with_all_organs_above_50 >= victory_time:  # Comprueba si se cumple el tiempo necesario
 			print("¡Victoria! Todos los órganos por encima del 50% durante 30 segundos")
+			get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 	else:
 		time_with_all_organs_above_50 = 0.0  # Reinicia el contador si algún órgano cae por debajo del 50%
 
 func all_organs_above_50() -> bool:
 	# Verifica si todos los órganos tienen más del 50% de salud
 	for health in [GameManager.brain_percentage, GameManager.stomach_percentage, GameManager.pancreas_percentage, GameManager.kidneys_percentage, GameManager.heart_percentage, GameManager.liver_percentage]:
-		if health <= 50.0:  # Si alguno está por debajo o igual al 50%
+		if health <= 30.0:  # Si alguno está por debajo o igual al 50%
 			return false
 	return true
 

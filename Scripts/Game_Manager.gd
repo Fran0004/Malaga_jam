@@ -12,10 +12,10 @@ var organ_name: String = ""
 @export var organs_health: Dictionary = {
 	"brain": {"current": 10.0, "max": 10.0},
 	"stomach": {"current": 5.0, "max": 10.0},
-	"pancreas": {"current": 3.0, "max": 10.0},
+	"pancreas": {"current": 5.0, "max": 10.0},
 	"kidneys": {"current": 5.0, "max": 10.0},
-	"liver": {"current": 2.0, "max": 10.0},
-	"heart": {"current": 3.0, "max": 10.0}
+	"liver": {"current": 5.0, "max": 10.0},
+	"heart": {"current": 5.0, "max": 10.0}
 }
 
 var heal_organ_amount: float = 0.3
@@ -50,6 +50,7 @@ var person_visible: bool = true
 var labels_visible: bool = true
 
 var winning: bool = false
+var losing: bool = false
 
 func _process(delta: float) -> void:
 	brain_percentage = (organs_health["brain"]["current"]/organs_health["brain"]["max"]) * 100
