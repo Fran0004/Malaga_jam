@@ -19,6 +19,8 @@ extends Control
 @onready var kidneys_label: Label = $Labels/KidneysLabel
 @onready var heart_label: Label = $Labels/HeartLabel
 @onready var liver_label: Label = $Labels/LiverLabel
+@onready var counter: Label = $Counter
+@onready var bubble_label: Label = $BubbleHud/BubbleLabel
 
 func _process(delta: float) -> void:
 	body_hud.visible = GameManager.person_visible
@@ -31,9 +33,10 @@ func _process(delta: float) -> void:
 	alert_kidneys.visible = GameManager.kidneys_debuff
 	alert_brain.visible = GameManager.brain_debuff
 	
-	brain_label.text = "%.2f" % GameManager.brain_percentage +"%"
-	heart_label.text = "%.2f" % GameManager.heart_percentage +"%"
-	stomach_label.text = "%.2f" % GameManager.stomach_percentage +"%"
-	liver_label.text = "%.2f" % GameManager.liver_percentage +"%"
-	pancreas_label.text = "%.2f" % GameManager.pancreas_percentage +"%"
-	kidneys_label.text = "%.2f" % GameManager.kidneys_percentage +"%"
+	brain_label.text = "%.0f" % GameManager.brain_percentage +"%"
+	heart_label.text = "%.0f" % GameManager.heart_percentage +"%"
+	stomach_label.text = "%.0f" % GameManager.stomach_percentage +"%"
+	liver_label.text = "%.0f" % GameManager.liver_percentage +"%"
+	pancreas_label.text = "%.0f" % GameManager.pancreas_percentage +"%"
+	kidneys_label.text = "%.0f" % GameManager.kidneys_percentage +"%"
+	

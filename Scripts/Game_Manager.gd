@@ -3,7 +3,10 @@ extends Node
 #Variables del player
 @export var oxigen_player: int = 0
 @export var max_oxigen_player: int = 10
-var key_sprite_show: bool = false
+var can_heal: bool = false
+var key_sprite_show: bool = can_heal
+var organ_name: String = ""
+@export var SPEED = 300.0 
 
 # Variables de salud de los órganos
 @export var organs_health: Dictionary = {
@@ -15,7 +18,7 @@ var key_sprite_show: bool = false
 	"heart": {"current": 10.0, "max": 10.0, 'protected': false}
 }
 
-var heal_organ_amount: float = 0.33
+var heal_organ_amount: float = 0.03
 
 var brain_percentage: float 
 var stomach_percentage: float 

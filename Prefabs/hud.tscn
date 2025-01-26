@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dyw220r20tsvl"]
+[gd_scene load_steps=17 format=3 uid="uid://dyw220r20tsvl"]
 
 [ext_resource type="Texture2D" uid="uid://dvt384vcrf32w" path="res://Hud/body hud/body hud.png" id="1_34yu5"]
 [ext_resource type="Script" path="res://Scripts/hud.gd" id="1_tt474"]
@@ -9,11 +9,24 @@
 [ext_resource type="Texture2D" uid="uid://dr52uporgknql" path="res://Hud/body hud/alert pancreas.png" id="6_7h157"]
 [ext_resource type="Texture2D" uid="uid://b67kji3nsmtr6" path="res://Hud/body hud/alert stomach.png" id="7_6mfhc"]
 [ext_resource type="FontFile" uid="uid://djgnsrux2m0cq" path="res://Assets/Fonts/Mleitod Personal Use Only.ttf" id="9_pdjvo"]
+[ext_resource type="Script" path="res://Prefabs/bubble_hud.gd" id="10_f43l1"]
+[ext_resource type="Texture2D" uid="uid://dxb13m33u3n4x" path="res://Assets/Sprites/Lungs/bubble.png" id="10_n8dgb"]
+[ext_resource type="FontFile" uid="uid://kt7i38xc2dx" path="res://Assets/Fonts/Pixelout Personal Use Only.ttf" id="11_4upek"]
+[ext_resource type="Script" path="res://Prefabs/counter.gd" id="13_0vexf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1t7ue"]
 font = ExtResource("9_pdjvo")
 
+[sub_resource type="LabelSettings" id="LabelSettings_8jcbb"]
+font = ExtResource("9_pdjvo")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_feji2"]
+font = ExtResource("11_4upek")
+font_size = 64
+
 [node name="HUD" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -124,3 +137,54 @@ offset_right = 1250.0
 offset_bottom = 682.0
 text = "69%"
 label_settings = SubResource("LabelSettings_1t7ue")
+
+[node name="BubbleHud" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("10_f43l1")
+
+[node name="ColorRect" type="TextureRect" parent="BubbleHud"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1102.0
+offset_right = 1240.0
+offset_bottom = 148.0
+grow_horizontal = 0
+texture = ExtResource("10_n8dgb")
+expand_mode = 1
+
+[node name="BubbleLabel" type="Label" parent="BubbleHud"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.575
+offset_left = 1008.0
+offset_top = 40.0
+offset_right = 1109.0
+offset_bottom = 82.0
+text = "0"
+label_settings = SubResource("LabelSettings_8jcbb")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Counter" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -215.0
+offset_top = 20.0
+offset_right = 216.0
+offset_bottom = 84.0
+grow_horizontal = 2
+text = "0"
+label_settings = SubResource("LabelSettings_feji2")
+horizontal_alignment = 1
+script = ExtResource("13_0vexf")
+
+[node name="Timer" type="Timer" parent="Counter"]
+one_shot = true
+autostart = true
