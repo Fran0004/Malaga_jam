@@ -138,8 +138,7 @@ func update_heart() -> void:
 		print("Velocidad reducida por baja salud del corazón")
 	if GameManager.heart_debuff == true and GameManager.SPEED > 175:
 		GameManager.SPEED = GameManager.SPEED * 0.95
-	if GameManager.heart_buff == true and GameManager.SPEED > 175:
-		GameManager.SPEED = GameManager.SPEED * 1.05
+
 	 
 
 func update_brain() -> void:
