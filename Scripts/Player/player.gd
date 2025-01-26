@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-@export var SPEED = 400.0  # Velocidad del personaje
 @onready var action_key: Sprite2D = $ActionKey
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 func _physics_process(delta: float) -> void:
@@ -15,17 +14,17 @@ func _physics_process(delta: float) -> void:
 		action_key.visible = false
 	# Detectar las teclas presionadas y ajustar la velocidad
 	if Input.is_action_pressed("move_down"):
-		velocity.y += SPEED
+		velocity.y += GameManager.SPEED
 	if Input.is_action_pressed("move_up"):
-		velocity.y -= SPEED
+		velocity.y -= GameManager.SPEED
 	if Input.is_action_pressed("move_right"):
-		velocity.x += SPEED
+		velocity.x += GameManager.SPEED
 	if Input.is_action_pressed("move_left"):
-		velocity.x -= SPEED
+		velocity.x -= GameManager.SPEED
 
 	# Normalizar la velocidad para evitar duplicación al moverse en diagonal
 	if velocity.length() > 0:
-		velocity = velocity.normalized() * SPEED
+		velocity = velocity.normalized() * GameManager.SPEED
 
 	# Mover al jugador
 	position += velocity * delta
