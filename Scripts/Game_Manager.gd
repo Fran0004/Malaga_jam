@@ -49,6 +49,7 @@ var heart_debuff: bool = false
 var person_visible: bool = true
 var labels_visible: bool = true
 
+var winning: bool = false
 
 func _process(delta: float) -> void:
 	brain_percentage = (organs_health["brain"]["current"]/organs_health["brain"]["max"]) * 100
