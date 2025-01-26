@@ -312,7 +312,7 @@ offset_right = 878.0
 offset_bottom = 619.0
 theme = ExtResource("2_bb0k8")
 theme_override_font_sizes/font_size = 48
-text = "OPTIONS"
+text = "EXIT"
 
 [node name="PlayButton" type="Button" parent="."]
 z_index = 1
@@ -329,5 +329,6 @@ libraries = {
 "": SubResource("AnimationLibrary_2ltjb")
 }
 
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="animation_finished" from="SplashAnimator" to="." method="_on_splash_animator_animation_finished"]
