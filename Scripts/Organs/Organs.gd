@@ -85,8 +85,6 @@ func update_liver() -> void:
 		GameManager.liver_debuff = true
 	elif GameManager.liver_percentage >= 50:
 		GameManager.liver_debuff = false
-	if GameManager.liver_buff == true:
-		pass
 
 
 func update_stomach() -> void:
@@ -137,7 +135,7 @@ func update_brain() -> void:
 
 func drain_organ_energy(organ: String) -> void:
 	# Verifica si el órgano especificado existe y si su energía actual es mayor que 0
-	if organ in GameManager.organs_health and GameManager.organs_health[organ]["current"] > 0:
+	if organ in GameManager.organs_health and GameManager.organs_health[organ]["current"] > 0 and not organ == protected_organ:
 		# Reduce la energía del órgano
 		GameManager.organs_health[organ]["current"] -= drain_amount
 
