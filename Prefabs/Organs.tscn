@@ -1,13 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://sprhrij66rk5"]
+[gd_scene load_steps=5 format=3 uid="uid://sprhrij66rk5"]
 
+[ext_resource type="Shader" path="res://Shaders/Organs.gdshader" id="1_0x2t1"]
 [ext_resource type="Script" path="res://Scripts/Organs/Organs.gd" id="1_ukv7j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bm2ya"]
+shader = ExtResource("1_0x2t1")
+shader_parameter/max_line_width = 2.0
+shader_parameter/min_line_width = 1.0
+shader_parameter/freq = 1.0
+shader_parameter/block_size = 20.0
+shader_parameter/outline_colour = Color(0.529412, 0, 0.0313726, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xe05k"]
 radius = 53.3385
 
 [node name="Organs" type="Sprite2D"]
+material = SubResource("ShaderMaterial_bm2ya")
 script = ExtResource("1_ukv7j")
 Type = 6
+drain_amount = 0.015
 
 [node name="Area2D" type="Area2D" parent="."]
 

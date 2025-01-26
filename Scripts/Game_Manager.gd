@@ -2,20 +2,23 @@ extends Node
 
 #Variables del player
 @export var oxigen_player: int = 0
-@export var max_oxigen_player: int = 10
-var key_sprite_show: bool = false
+@export var max_oxigen_player: int = 30
+var can_heal: bool = false
+var key_sprite_show: bool = can_heal
+var organ_name: String = ""
+@export var SPEED = 300.0 
 
 # Variables de salud de los órganos
 @export var organs_health: Dictionary = {
-	"brain": {"current": 10.0, "max": 10.0, 'protected': false},
-	"stomach": {"current": 10.0, "max": 10.0, 'protected': false},
-	"pancreas": {"current": 3.0, "max": 10.0, 'protected': false},
-	"kidneys": {"current": 10.0, "max": 10.0, 'protected': false},
-	"liver": {"current": 10.0, "max": 10.0, 'protected': false},
-	"heart": {"current": 10.0, "max": 10.0, 'protected': false}
+	"brain": {"current": 10.0, "max": 10.0},
+	"stomach": {"current": 5.0, "max": 10.0},
+	"pancreas": {"current": 3.0, "max": 10.0},
+	"kidneys": {"current": 5.0, "max": 10.0},
+	"liver": {"current": 2.0, "max": 10.0},
+	"heart": {"current": 3.0, "max": 10.0}
 }
 
-var heal_organ_amount: float = 0.33
+var heal_organ_amount: float = 0.3
 
 var brain_percentage: float 
 var stomach_percentage: float 
@@ -44,6 +47,7 @@ var heart_debuff: bool = false
 var person_visible: bool = true
 var labels_visible: bool = true
 
+var winning: bool = false
 
 func _process(delta: float) -> void:
 	brain_percentage = (organs_health["brain"]["current"]/organs_health["brain"]["max"]) * 100
