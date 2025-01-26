@@ -41,6 +41,7 @@ func _process(delta: float) -> void:
 			update_brain()
 		OrganType.KIDNEYS:
 			update_kidneys()
+			delete_obstacles()
 		OrganType.LIVER:
 			update_liver()
 		OrganType.PANCREAS:
@@ -84,7 +85,8 @@ func update_liver() -> void:
 		GameManager.liver_debuff = true
 	elif GameManager.liver_percentage >= 50:
 		GameManager.liver_debuff = false
-		
+	if GameManager.liver_buff == true:
+		pass
 
 
 func update_stomach() -> void:
@@ -101,6 +103,11 @@ func update_stomach() -> void:
 		#GameManager.stomach_debuff = true
 		#GameManager.stomach_buff = false
 	
+func delete_obstacles():
+	if GameManager.pancreas_buff == true and stomach_timer.time_left <= 0.0 and not stomach_timer.is_stopped():
+		obstacles[randi() % obstacles.size()].queue_free()
+		stomach_timer.start()
+
 func update_pancreas() -> void:
 	# Páncreas: Bloquea rutas cortas si su salud es baja
 	if GameManager.pancreas_percentage < 30:
@@ -110,6 +117,7 @@ func update_pancreas() -> void:
 		for route in short_routes:
 			route.block()
 			print("Ruta corta bloqueada debido al páncreas")
+
 
 func update_heart() -> void:
 	# Corazón: Afecta la velocidad del glóbulo
