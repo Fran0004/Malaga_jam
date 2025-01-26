@@ -33,10 +33,10 @@ func _process(delta: float) -> void:
 	alert_kidneys.visible = GameManager.kidneys_debuff
 	alert_brain.visible = GameManager.brain_debuff
 	
-	brain_label.text = "%.0f" % GameManager.brain_percentage +"%"
-	heart_label.text = "%.0f" % GameManager.heart_percentage +"%"
-	stomach_label.text = "%.0f" % GameManager.stomach_percentage +"%"
-	liver_label.text = "%.0f" % GameManager.liver_percentage +"%"
-	pancreas_label.text = "%.0f" % GameManager.pancreas_percentage +"%"
-	kidneys_label.text = "%.0f" % GameManager.kidneys_percentage +"%"
+	brain_label.text = "%.1f" % GameManager.brain_percentage +"%"
+	heart_label.text = "%.1f" % GameManager.heart_percentage +"%"
+	stomach_label.text = "%.1f" % GameManager.stomach_percentage +"%"
+	liver_label.text = "%.1f" % GameManager.liver_percentage +"%"
+	pancreas_label.text = "%.1f" % GameManager.pancreas_percentage +"%"
+	kidneys_label.text = "%.1f" % GameManager.kidneys_percentage +"%"
 	

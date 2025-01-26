@@ -5,7 +5,7 @@ extends Sprite2D
 
 
 const AIR_BUBBLE = preload("res://Prefabs/air_bubble.tscn")
-var max_bubbles = 10
+var max_bubbles = 100
 var current_bubbles = 0
 @onready var air_bubble: Area2D = $AirBubble
 

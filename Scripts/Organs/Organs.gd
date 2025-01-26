@@ -90,7 +90,7 @@ func update_liver() -> void:
 
 func update_stomach() -> void:
 	# Estómago: Genera glóbulos blancos (proteínas) que curan al personaje
-	if GameManager.stomach_percentage > 0:	# Verifica si el temporizador está en marcha
+	if GameManager.stomach_percentage > 10:	# Verifica si el temporizador está en marcha
 		GameManager.stomach_debuff = false
 		GameManager.stomach_buff = true
 		if not stomach_timer.is_stopped():
@@ -98,9 +98,9 @@ func update_stomach() -> void:
 
 		# Inicia el temporizador para generar proteínas
 		stomach_timer.start()
-	#if GameManager.stomach_percentage < 10:
-		#GameManager.stomach_debuff = true
-		#GameManager.stomach_buff = false
+	if GameManager.stomach_percentage < 10:
+		GameManager.stomach_debuff = true
+		GameManager.stomach_buff = false
 	
 #func delete_obstacles():
 #	if GameManager.pancreas_buff == true and stomach_timer.time_left <= 0.0 and not stomach_timer.is_stopped():
@@ -136,7 +136,10 @@ func update_brain() -> void:
 	# Cerebro: Reduce la interfaz y puede provocar la muerte
 	if GameManager.brain_percentage < 50:
 		GameManager.person_visible = false
-		GameManager.labels_visible = false  # Esconde el contador de oxígeno
+		GameManager.labels_visible = false
+	if GameManager.brain_percentage > 50:
+		GameManager.person_visible = true
+		GameManager.labels_visible = true
 	if GameManager.brain_percentage <= 0:
 		print("¡Game Over! El cerebro ha fallado")
 		

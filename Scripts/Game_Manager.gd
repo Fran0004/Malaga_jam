@@ -2,7 +2,7 @@ extends Node
 
 #Variables del player
 @export var oxigen_player: int = 0
-@export var max_oxigen_player: int = 10
+@export var max_oxigen_player: int = 30
 var can_heal: bool = false
 var key_sprite_show: bool = can_heal
 var organ_name: String = ""
@@ -18,7 +18,7 @@ var organ_name: String = ""
 	"heart": {"current": 3.0, "max": 10.0}
 }
 
-var heal_organ_amount: float = 0.03
+var heal_organ_amount: float = 0.3
 
 var brain_percentage: float 
 var stomach_percentage: float 
