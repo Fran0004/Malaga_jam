@@ -19,6 +19,8 @@ extends Control
 @onready var kidneys_label: Label = $Labels/KidneysLabel
 @onready var heart_label: Label = $Labels/HeartLabel
 @onready var liver_label: Label = $Labels/LiverLabel
+@onready var counter: Label = $Counter
+@onready var bubble_label: Label = $BubbleHud/BubbleLabel
 
 func _process(delta: float) -> void:
 	body_hud.visible = GameManager.person_visible
