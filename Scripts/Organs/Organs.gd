@@ -85,7 +85,7 @@ func update_liver() -> void:
 
 func update_stomach() -> void:
 	# Estómago: Genera glóbulos blancos (proteínas) que curan al personaje
-	if GameManager.stomach_percentage > 0:		# Verifica si el temporizador está en marcha
+	if GameManager.stomach_percentage > 0:	# Verifica si el temporizador está en marcha
 		GameManager.stomach_debuff = false
 		GameManager.stomach_buff = true
 		if not stomach_timer.is_stopped():

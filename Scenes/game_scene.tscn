@@ -21,7 +21,6 @@ texture_filter = 1
 z_index = 1
 position = Vector2(681, 368)
 scale = Vector2(1, 1)
-SPEED = 400.0
 
 [node name="Lungs" parent="." instance=ExtResource("3_b4ni0")]
 position = Vector2(1186, 204)
