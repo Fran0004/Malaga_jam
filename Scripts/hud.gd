@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 	alert_liver.visible = GameManager.liver_debuff
 	alert_heart.visible = GameManager.heart_debuff
 	alert_kidneys.visible = GameManager.kidneys_debuff
-	alert_brain.visible = GameManager.brain_debuff
+	alert_pancreas.visible = GameManager.pancreas_debuff
 	
 	brain_label.text = "%.1f" % GameManager.brain_percentage +"%"
 	heart_label.text = "%.1f" % GameManager.heart_percentage +"%"
