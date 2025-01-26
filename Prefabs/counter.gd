@@ -12,6 +12,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if all_organs_active() == false or (current_time_left >= 30 and timer.time_left <= 0):
 		counter.visible = false
+		current_time_left = 0
+		
 	elif all_organs_active() and timer.time_left <= 0 and current_time_left < 30:
 		counter.visible = true
 		current_time_left += 1
