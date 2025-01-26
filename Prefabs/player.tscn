@@ -1,33 +1,129 @@
-[gd_scene load_steps=6 format=3 uid="uid://du3n3tp1kn4xj"]
+[gd_scene load_steps=19 format=3 uid="uid://du3n3tp1kn4xj"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_bsxht"]
 [ext_resource type="PackedScene" uid="uid://dyw220r20tsvl" path="res://Prefabs/hud.tscn" id="2_8lrcr"]
+[ext_resource type="Shader" path="res://Shaders/Organs.gdshader" id="2_itcae"]
 [ext_resource type="Texture2D" uid="uid://drym0nry7xhq5" path="res://Assets/Sprites/Character/CharacterGlobe.png" id="2_w1s3h"]
-[ext_resource type="Texture2D" uid="uid://ddb11uxifg6dl" path="res://Assets/Sprites/Character/bubble.png" id="3_kt60a"]
+[ext_resource type="Texture2D" uid="uid://ddb11uxifg6dl" path="res://Assets/Sprites/Character/bubble.png" id="4_yqcin"]
+[ext_resource type="Texture2D" uid="uid://bce6w0v4vurv1" path="res://Player/Player.png" id="5_6phpo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8jyuk"]
+shader = ExtResource("2_itcae")
+shader_parameter/max_line_width = 1.0
+shader_parameter/min_line_width = 1.0
+shader_parameter/freq = 2.0
+shader_parameter/block_size = 2.0
+shader_parameter/outline_colour = Color(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_404u5"]
+atlas = ExtResource("5_6phpo")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ml3jt"]
+atlas = ExtResource("5_6phpo")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8mml"]
+atlas = ExtResource("5_6phpo")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wd28j"]
+atlas = ExtResource("5_6phpo")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qtqe"]
+atlas = ExtResource("5_6phpo")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ml0li"]
+atlas = ExtResource("5_6phpo")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_husog"]
+atlas = ExtResource("5_6phpo")
+region = Rect2(128, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o32uj"]
+atlas = ExtResource("5_6phpo")
+region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b4x2b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_404u5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ml3jt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8mml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wd28j")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qtqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ml0li")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_husog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o32uj")
+}],
+"loop": true,
+"name": &"Nading",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1cqk4"]
 radius = 26.9231
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j5kog"]
+radius = 27.3415
 
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_bsxht")
+SPEED = 250.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_8jyuk")
+sprite_frames = SubResource("SpriteFrames_b4x2b")
+animation = &"Idle"
+autoplay = "Nading"
+frame_progress = 0.0186754
+
 [node name="Player Image" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_w1s3h")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1.04, 1)
-shape = SubResource("CircleShape2D_1cqk4")
-
 [node name="ActionKey" type="Sprite2D" parent="."]
-position = Vector2(32, -41.3333)
-scale = Vector2(1.15495, 1.15495)
-texture = ExtResource("3_kt60a")
+position = Vector2(32, -44)
+scale = Vector2(0.726563, 0.726563)
+texture = ExtResource("4_yqcin")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="UI" instance=ExtResource("2_8lrcr")]
+
+[node name="AreaPlayer" type="Area2D" parent="."]
+
+[node name="AreaPlayerCollider" type="CollisionShape2D" parent="AreaPlayer"]
+scale = Vector2(1.04, 1)
+shape = SubResource("CircleShape2D_1cqk4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_j5kog")
