@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://bloo1xgg6cjq1"]
+[gd_scene load_steps=30 format=4 uid="uid://bloo1xgg6cjq1"]
 
 [ext_resource type="Texture2D" uid="uid://6t164xi07fem" path="res://Assets/Sprites/Map/Tileset_arterias.png" id="1_gpiwr"]
 [ext_resource type="Texture2D" uid="uid://tgrqyjxb588a" path="res://Tileset/tileset_cerebro.png" id="2_il65b"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dratm0db55v74" path="res://Tileset/tileset_corazon.png" id="6_ypeh8"]
 [ext_resource type="Texture2D" uid="uid://dwiumlrlqhfq3" path="res://Tileset/tileset_pulmones.png" id="7_ri84h"]
 [ext_resource type="Texture2D" uid="uid://bkwqvr0c6wd6d" path="res://Tileset/tileset_rinones.png" id="8_5p0mp"]
+[ext_resource type="AudioStream" uid="uid://l6paujr5cmhe" path="res://Assets/Sounds/Chapel of Hate v0_8(1).mp3" id="10_gmedl"]
+[ext_resource type="AudioStream" uid="uid://q8sc2pn8gx10" path="res://Assets/Sounds/heart-289988.mp3" id="11_8yv8j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e43kg"]
 texture = ExtResource("1_gpiwr")
@@ -5055,3 +5057,14 @@ tile_set = SubResource("TileSet_i1o2o")
 position = Vector2(1505, 1391)
 tile_map_data = PackedByteArray("AAAEAOv/AAACAAYAAAAEAOz/AAACAAcAAAAEAO3/AAACAAgAAAAEAO7/AAACAAYAAAAEAO//AAACAAcAAAAEAPD/AAACAAgAAAA=")
 tile_set = SubResource("TileSet_i1o2o")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="musica" type="AudioStreamPlayer2D" parent="Node"]
+stream = ExtResource("10_gmedl")
+autoplay = true
+
+[node name="latidos" type="AudioStreamPlayer2D" parent="Node"]
+stream = ExtResource("11_8yv8j")
+volume_db = 12.0
+autoplay = true

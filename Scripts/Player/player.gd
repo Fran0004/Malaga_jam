@@ -51,9 +51,8 @@ func _physics_process(delta: float) -> void:
 func heal_organ(organName: String):
 	if GameManager.organs_health[organName]["current"] < GameManager.organs_health[organName]["max"] and GameManager.oxigen_player > 0:
 		GameManager.organs_health[organName]["current"] += GameManager.heal_organ_amount
-		GameManager.oxigen_player -= 1	
-
-
+		GameManager.oxigen_player -= 1
+		$"../Node/burbuja".play()
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	GameManager.key_sprite_show = true
 
