@@ -7,11 +7,11 @@
 [ext_resource type="Script" path="res://Scripts/lungs.gd" id="5_663on"]
 [ext_resource type="Texture2D" uid="uid://dqe2shlrch736" path="res://Assets/Sprites/Organs/brain.png" id="5_ppefq"]
 [ext_resource type="Texture2D" uid="uid://dkcxe170vdu2g" path="res://Assets/Sprites/Organs/estomago.png" id="6_6iwdy"]
-[ext_resource type="Texture2D" uid="uid://qqkykfkca8mq" path="res://Assets/Sprites/Organs/rinones.png" id="7_6manq"]
+[ext_resource type="Texture2D" uid="uid://qqkykfkca8mq" path="res://Prefabs/rinones.png" id="7_6manq"]
 [ext_resource type="Texture2D" uid="uid://xwbdq6snjks" path="res://Assets/Sprites/Organs/pancrea.png" id="8_kswur"]
 [ext_resource type="Texture2D" uid="uid://dx0o5mmk45pr3" path="res://Assets/Sprites/Organs/higado.png" id="9_gl5yr"]
 [ext_resource type="Texture2D" uid="uid://damtfk5ixl45h" path="res://Assets/Sprites/Organs/corazon.png" id="10_n0der"]
-[ext_resource type="PackedScene" uid="uid://5ycy1fbsb24f" path="res://Prefabs/Door.tscn" id="12_s36bb"]
+[ext_resource type="PackedScene" uid="uid://bwlku60oche38" path="res://Prefabs/Door.tscn" id="12_s36bb"]
 
 [node name="Main" type="Node2D"]
 texture_filter = 1

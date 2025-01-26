@@ -26,9 +26,6 @@ enum OrganType{
 	STOMACH
 }
 
-@export var victory_time: float = 30.0  # Tiempo necesario para ganar
-@export var Type: int = OrganType.NONE
-@export var organName: String
 @export var drain_amount: float = 0.005  # Cantidad de energía que se pierde por segundo# Called when the node enters the scene tree for the first time.
 
 ##TIMERS
@@ -41,8 +38,6 @@ var closeSide: Array[Node]
 func _ready() -> void:
 	mainDoors = get_tree().get_nodes_in_group("main-doors")  # Lista de rutas cortas para páncreas
 	sideDoors = get_tree().get_nodes_in_group("side-doors")  # Lista de rutas cortas para páncreas
-
-func _ready() -> void:
 	if Type == OrganType.NONE:
 		collision_shape_2d.disabled
 		
@@ -199,7 +194,7 @@ func update_brain() -> void:
 
 func drain_organ_energy(organ: String) -> void:
 	# Verifica si el órgano especificado existe y si su energía actual es mayor que 0
-	if organ in GameManager.organs_health and GameManager.organs_health[organ]["current"] > 0 and not organ == protected_organ:
+	if organ in GameManager.organs_health and GameManager.organs_health[organ]["current"] > 0 and not GameManager.organs_health[organ]["protected"]:
 		# Reduce la energía del órgano
 		if GameManager.kidneys_debuff == true:
 			drain_multiplier = 2
