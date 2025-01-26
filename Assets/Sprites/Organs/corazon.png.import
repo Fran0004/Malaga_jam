@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6t164xi07fem"
-path="res://.godot/imported/Tileset_arterias.png-5bf647c4625183e021e96439c488d21f.ctex"
+uid="uid://b7do34o4hritt"
+path="res://.godot/imported/corazon.png-dafb5947438904d79a149d33a738af94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Map/Tileset_arterias.png"
-dest_files=["res://.godot/imported/Tileset_arterias.png-5bf647c4625183e021e96439c488d21f.ctex"]
+source_file="res://Assets/Sprites/Organs/corazon.png"
+dest_files=["res://.godot/imported/corazon.png-dafb5947438904d79a149d33a738af94.ctex"]
 
 [params]
 
