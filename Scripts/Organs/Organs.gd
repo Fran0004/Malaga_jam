@@ -109,7 +109,7 @@ func update_liver() -> void:
 		GameManager.liver_buff = true
 		GameManager.liver_debuff = false
 		var organs = ["brain", "stomach", "pancreas", "kidneys", "heart"]
-		protected_organ = organs[randi() % organs.size()]
+		var protected_organ = organs[randi() % organs.size()]
 		print("Hígado protege: ", protected_organ)
 	if GameManager.liver_percentage == 0:
 		$"../Node/aviso".play()
@@ -168,18 +168,18 @@ func update_pancreas() -> void:
 			door.close()
 
 	elif GameManager.pancreas_percentage > 50:
-	if GameManager.pancreas_percentage == 0:
-		$"../Node/aviso".play()
-		GameManager.pancreas_buff = false
-		GameManager.pancreas_debuff = true
-	if GameManager.pancreas_percentage > 0:
-		GameManager.pancreas_buff = true
-		GameManager.pancreas_debuff = false
+		if GameManager.pancreas_percentage == 0:
+			$"../Node/aviso".play()
+			GameManager.pancreas_buff = false
+			GameManager.pancreas_debuff = true
+		if GameManager.pancreas_percentage > 0:
+			GameManager.pancreas_buff = true
+			GameManager.pancreas_debuff = false
 
-		for door in mainDoors:
-			door.open()
-		for door in sideDoors:
-			door.open()
+			for door in mainDoors:
+				door.open()
+			for door in sideDoors:
+				door.open()
 
 func getRandArraySelection(array: Array[Node], amount: int) -> Array[Node]:
 	var shuffled_array: Array = array.duplicate()

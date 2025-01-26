@@ -5,7 +5,6 @@ extends CharacterBody2D
 func _physics_process(delta: float) -> void:
 	# Reiniciamos la velocidad en cada frame
 	
-	
 	velocity = Vector2.ZERO
 	
 	if GameManager.key_sprite_show:
@@ -52,6 +51,7 @@ func heal_organ(organName: String):
 		GameManager.organs_health[organName]["current"] += GameManager.heal_organ_amount
 		GameManager.oxigen_player -= 1
 		$"../Node/burbuja".play()
+		
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	GameManager.key_sprite_show = true
 
