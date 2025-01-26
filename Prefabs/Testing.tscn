@@ -14,7 +14,6 @@ texture_filter = 1
 
 [node name="Player" parent="." instance=ExtResource("1_e22wt")]
 position = Vector2(349, 240)
-SPEED = 500.0
 
 [node name="Organs" parent="." instance=ExtResource("2_1nmqo")]
 texture_filter = 1

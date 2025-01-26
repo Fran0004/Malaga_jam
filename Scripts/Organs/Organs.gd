@@ -48,7 +48,7 @@ func _process(delta: float) -> void:
 	time_accumulator += delta
 
 	# Si el acumulador ha alcanzado o superado el intervalo de drenaje
-	if time_accumulator >= drain_interval:
+	if time_accumulator >= drain_interval and protected_organ != organName:
 		time_accumulator -= drain_interval  # Resta el tiempo que ya ha pasado en este intervalo
 		drain_organ_energy(organName)  # Llama a la función para drenar la energía del estómago (o del órgano que desees)
 	
@@ -69,16 +69,18 @@ func update_kidneys() -> void:
 		
 func update_liver() -> void:
 	# Hígado: Protege un órgano y detiene su desgaste de energía
-	if GameManager.liver_percentage > 75 and protected_organ == "":
+	if GameManager.liver_percentage > 75:
 		GameManager.liver_buff = true
 		GameManager.liver_debuff = false
 		var organs = ["brain", "stomach", "pancreas", "kidneys", "heart"]
 		protected_organ = organs[randi() % organs.size()]
 		print("Hígado protege: ", protected_organ)
-	elif GameManager.liver_percentage < 50:
+	if GameManager.liver_percentage < 50:
 		GameManager.liver_buff = false
 		GameManager.liver_debuff = true
-
+	elif GameManager.liver_percentage >= 50:
+		GameManager.liver_debuff = false
+		
 
 
 func update_stomach() -> void:

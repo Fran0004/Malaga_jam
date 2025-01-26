@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dgr40cv7cm0oe"]
+[gd_scene load_steps=12 format=3 uid="uid://dgr40cv7cm0oe"]
 
 [ext_resource type="PackedScene" uid="uid://bloo1xgg6cjq1" path="res://Prefabs/map.tscn" id="1_85csv"]
 [ext_resource type="PackedScene" uid="uid://du3n3tp1kn4xj" path="res://Prefabs/player.tscn" id="2_r4ihi"]
 [ext_resource type="PackedScene" uid="uid://sprhrij66rk5" path="res://Prefabs/Organs.tscn" id="3_b4ni0"]
 [ext_resource type="Texture2D" uid="uid://bpxcfhc83oc22" path="res://Assets/Sprites/Organs/pulmones.png" id="4_syp6c"]
+[ext_resource type="Script" path="res://Scripts/lungs.gd" id="5_663on"]
 [ext_resource type="Texture2D" uid="uid://dqe2shlrch736" path="res://Assets/Sprites/Organs/brain.png" id="5_ppefq"]
 [ext_resource type="Texture2D" uid="uid://dkcxe170vdu2g" path="res://Assets/Sprites/Organs/estomago.png" id="6_6iwdy"]
 [ext_resource type="Texture2D" uid="uid://qqkykfkca8mq" path="res://Assets/Sprites/Organs/rinones.png" id="7_6manq"]
@@ -17,15 +18,23 @@ texture_filter = 1
 [node name="Map" parent="." instance=ExtResource("1_85csv")]
 
 [node name="Player" parent="." instance=ExtResource("2_r4ihi")]
+z_index = 1
 position = Vector2(681, 368)
-SPEED = 500.0
+scale = Vector2(1, 1)
+SPEED = 400.0
 
 [node name="Lungs" parent="." instance=ExtResource("3_b4ni0")]
 position = Vector2(1186, 204)
 scale = Vector2(6.92188, 6.92188)
 texture = ExtResource("4_syp6c")
-Type = 0
-organName = "Lungs"
+script = ExtResource("5_663on")
+
+[node name="bubbleTimer" type="Timer" parent="Lungs"]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="SpawnPoint" type="Node2D" parent="Lungs"]
 
 [node name="Brain" parent="." instance=ExtResource("3_b4ni0")]
 position = Vector2(1111, -1206)

@@ -1,6 +1,6 @@
 extends Sprite2D
 
-@onready var spawnpoint: Node2D = $Spawnpoint
+@onready var spawn_point: Node2D = $SpawnPoint
 @onready var bubble_timer: Timer = $bubbleTimer
 
 
@@ -18,7 +18,7 @@ func create_bubble():
 	if bubble_timer.time_left <= 0 and current_bubbles < max_bubbles:
 		var newBubble = AIR_BUBBLE.instantiate()
 		get_node(".").add_child(newBubble)
-		newBubble.position = spawnpoint.position + Vector2(randi_range(-200, 200), randi_range(-200, 200))
+		newBubble.position = spawn_point.position + Vector2(randi_range(-200, 200), randi_range(-200, 200))
 		current_bubbles += 1
 		bubble_timer.start()
 

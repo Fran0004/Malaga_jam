@@ -1,12 +1,12 @@
 extends Node
 
 #Variables del player
-var oxigen_player: int = 0
-var max_oxigen_player: int = 10
+@export var oxigen_player: int = 0
+@export var max_oxigen_player: int = 10
 var key_sprite_show: bool = false
 
 # Variables de salud de los órganos
-var organs_health: Dictionary = {
+@export var organs_health: Dictionary = {
 	"brain": {"current": 10.0, "max": 10.0},
 	"stomach": {"current": 10.0, "max": 10.0},
 	"pancreas": {"current": 10.0, "max": 10.0},
@@ -14,6 +14,8 @@ var organs_health: Dictionary = {
 	"liver": {"current": 10.0, "max": 10.0},
 	"heart": {"current": 10.0, "max": 10.0}
 }
+
+var heal_organ_amount: float = 0.33
 
 var brain_percentage: float 
 var stomach_percentage: float 
@@ -23,9 +25,6 @@ var liver_percentage: float
 var heart_percentage: float 
 
 
-# Variables relacionadas con oxígeno y buffs
-@export var oxygen_spawn_rate: float = 2.0  # Tiempo entre generación de oxígeno
-@export var organ_energy_drain_rate: float = 5.0  # Energía que los órganos pierden por segundo
 
 #Buff activables
 var brain_buff: bool = false
@@ -46,6 +45,8 @@ var heart_debuff: bool = false
 
 var person_visible: bool = true
 var labels_visible: bool = true
+
+
 func _process(delta: float) -> void:
 	brain_percentage = (organs_health["brain"]["current"]/organs_health["brain"]["max"]) * 100
 	kidneys_percentage = (organs_health["kidneys"]["current"]/organs_health["kidneys"]["max"]) * 100
@@ -54,8 +55,4 @@ func _process(delta: float) -> void:
 	liver_percentage = (organs_health["liver"]["current"]/organs_health["liver"]["max"]) * 100
 	pancreas_percentage = (organs_health["pancreas"]["current"]/organs_health["brain"]["max"]) * 100
 	
-func trade_oxigen(organ):
-	var oxigen_feed_percentage = 0.50
-	#organ_health += oxigen_player * oxigen_feed_percentage
-	oxigen_player = 0
 	
