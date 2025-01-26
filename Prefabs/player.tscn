@@ -12,7 +12,6 @@ radius = 26.9231
 texture_filter = 1
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_bsxht")
-SPEED = 5000.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
