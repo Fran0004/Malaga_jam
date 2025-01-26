@@ -120,9 +120,8 @@ func update_heart() -> void:
 		print("Velocidad reducida por baja salud del corazón")
 func update_brain() -> void:
 	# Cerebro: Reduce la interfaz y puede provocar la muerte
-	if GameManager.brain_percentage < 70:
-		GameManager.person_visible = false
 	if GameManager.brain_percentage < 50:
+		GameManager.person_visible = false
 		GameManager.labels_visible = false  # Esconde el contador de oxígeno
 	if GameManager.brain_percentage <= 0:
 		print("¡Game Over! El cerebro ha fallado")
