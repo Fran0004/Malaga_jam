@@ -21,6 +21,6 @@ func _process(delta: float) -> void:
 
 func all_organs_active() -> bool:
 	for health in [GameManager.brain_percentage, GameManager.stomach_percentage, GameManager.pancreas_percentage, GameManager.kidneys_percentage, GameManager.heart_percentage, GameManager.liver_percentage]:
-		if health <= 0:
+		if health <= 50.0:
 			return false
 	return true
