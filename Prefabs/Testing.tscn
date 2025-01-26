@@ -1,16 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://12lqa58204vf"]
+[gd_scene load_steps=3 format=3 uid="uid://12lqa58204vf"]
 
 [ext_resource type="PackedScene" uid="uid://du3n3tp1kn4xj" path="res://Prefabs/player.tscn" id="1_e22wt"]
-[ext_resource type="PackedScene" uid="uid://dxbmqhh7wty4v" path="res://Prefabs/Heart.tscn" id="3_dbp2r"]
-[ext_resource type="PackedScene" uid="uid://bnggblvjuubpp" path="res://Prefabs/Brain.tscn" id="4_hprym"]
+[ext_resource type="PackedScene" uid="uid://bloo1xgg6cjq1" path="res://Prefabs/map.tscn" id="4_k4ke5"]
 
 [node name="Mapa" type="Node2D"]
 
+[node name="Map" parent="." instance=ExtResource("4_k4ke5")]
+position = Vector2(5823, 179)
+
 [node name="Player" parent="." instance=ExtResource("1_e22wt")]
-position = Vector2(363, 228)
+position = Vector2(6497, 563)
+scale = Vector2(0.2, 0.2)
 
-[node name="Heart" parent="." instance=ExtResource("3_dbp2r")]
-position = Vector2(-259, 599)
-
-[node name="Brain" parent="." instance=ExtResource("4_hprym")]
-position = Vector2(830, -181)
+[node name="Camera2D" type="Camera2D" parent="Player"]
+scale = Vector2(2, 2)
+zoom = Vector2(0.2, 0.2)
