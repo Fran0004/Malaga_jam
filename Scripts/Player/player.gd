@@ -44,6 +44,7 @@ func _physics_process(delta: float) -> void:
 	#Interacciones personaje
 	if Input.is_action_just_pressed("trade") and GameManager.can_heal:
 		heal_organ(GameManager.organ_name)
+		
 	 #Movemos el personaje
 	move_and_slide()
 
