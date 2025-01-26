@@ -1,21 +1,14 @@
-[gd_scene load_steps=35 format=4 uid="uid://bloo1xgg6cjq1"]
+[gd_scene load_steps=28 format=4 uid="uid://bloo1xgg6cjq1"]
 
 [ext_resource type="Texture2D" uid="uid://6t164xi07fem" path="res://Assets/Sprites/Map/Tileset_arterias.png" id="1_gpiwr"]
 [ext_resource type="Texture2D" uid="uid://tgrqyjxb588a" path="res://Tileset/tileset_cerebro.png" id="2_il65b"]
 [ext_resource type="Texture2D" uid="uid://brrt0ivatarqu" path="res://Tileset/tileset_estomago.png" id="3_lbt1h"]
 [ext_resource type="Texture2D" uid="uid://rdqv56x7g8kv" path="res://Tileset/tileset_organos.png" id="3_w7hv1"]
 [ext_resource type="Texture2D" uid="uid://bo6tixjsgeum0" path="res://Tileset/tileset_pancreas.png" id="4_iwpal"]
-[ext_resource type="Texture2D" uid="uid://bj0pjpxwdbhjd" path="res://Assets/Sprites/Organs/pulmones.webp" id="4_lj737"]
-[ext_resource type="Texture2D" uid="uid://b8gfutmt5bsst" path="res://Assets/Sprites/Organs/rinones.webp" id="5_d5ysp"]
 [ext_resource type="Texture2D" uid="uid://bfx8qasgoea8n" path="res://Tileset/tileset_higado.png" id="5_wtgxq"]
-[ext_resource type="Texture2D" uid="uid://bhi5h7oxfji5e" path="res://Assets/Sprites/Organs/estomago.webp" id="6_pp050"]
 [ext_resource type="Texture2D" uid="uid://dratm0db55v74" path="res://Tileset/tileset_corazon.png" id="6_ypeh8"]
-[ext_resource type="Texture2D" uid="uid://b4go12sqy53fp" path="res://Assets/Sprites/Organs/higado.webp" id="7_7h5ma"]
 [ext_resource type="Texture2D" uid="uid://dwiumlrlqhfq3" path="res://Tileset/tileset_pulmones.png" id="7_ri84h"]
 [ext_resource type="Texture2D" uid="uid://bkwqvr0c6wd6d" path="res://Tileset/tileset_rinones.png" id="8_5p0mp"]
-[ext_resource type="Texture2D" uid="uid://cswmm3p52mk2i" path="res://Assets/Sprites/Organs/pancrea.png" id="8_k0jgx"]
-[ext_resource type="Texture2D" uid="uid://b7do34o4hritt" path="res://Assets/Sprites/Organs/corazon.png" id="9_5mntq"]
-[ext_resource type="Texture2D" uid="uid://bjgnkjihppix1" path="res://Assets/Sprites/Organs/brain.png" id="10_dj7dj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e43kg"]
 texture = ExtResource("1_gpiwr")
@@ -5062,45 +5055,3 @@ tile_set = SubResource("TileSet_i1o2o")
 position = Vector2(1505, 1391)
 tile_map_data = PackedByteArray("AAAEAOv/AAACAAYAAAAEAOz/AAACAAcAAAAEAO3/AAACAAgAAAAEAO7/AAACAAYAAAAEAO//AAACAAcAAAAEAPD/AAACAAgAAAA=")
 tile_set = SubResource("TileSet_i1o2o")
-
-[node name="Pulmones" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(1126, 284)
-scale = Vector2(5.76172, 5.76172)
-texture = ExtResource("4_lj737")
-
-[node name="Rinones" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(-503, 1656)
-scale = Vector2(5.65039, 5.65039)
-texture = ExtResource("5_d5ysp")
-
-[node name="Estomago" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(-868, 267)
-scale = Vector2(7.5166, 7.5166)
-texture = ExtResource("6_pp050")
-
-[node name="Higado" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(2443, 949)
-scale = Vector2(7.10937, 7.10937)
-texture = ExtResource("7_7h5ma")
-
-[node name="Pancrea" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(1215, 1759)
-scale = Vector2(4.85938, 4.85938)
-texture = ExtResource("8_k0jgx")
-
-[node name="Corazon" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(2490, -154)
-scale = Vector2(4.78125, 4.78125)
-texture = ExtResource("9_5mntq")
-
-[node name="Brain" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(1065, -1227)
-scale = Vector2(7.05469, 7.05469)
-texture = ExtResource("10_dj7dj")
