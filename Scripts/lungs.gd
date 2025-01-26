@@ -18,7 +18,7 @@ func create_bubble():
 	if bubble_timer.time_left <= 0 and current_bubbles < max_bubbles:
 		var newBubble = AIR_BUBBLE.instantiate()
 		get_node(".").add_child(newBubble)
-		newBubble.position = spawn_point.position + Vector2(randi_range(-200, 200), randi_range(-200, 200))
+		newBubble.position = spawn_point.position + Vector2(randi_range(-35, 35), randi_range(-35, 35))
 		current_bubbles += 1
 		bubble_timer.start()
 
