@@ -10,9 +10,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if all_organs_active() == false or  current_time_left > 30:
+	if all_organs_active() == false or (current_time_left >= 30 and timer.time_left <= 0):
 		counter.visible = false
-	elif all_organs_active() and timer.time_left <= 0 and current_time_left <= 30:
+	elif all_organs_active() and timer.time_left <= 0 and current_time_left < 30:
 		counter.visible = true
 		current_time_left += 1
 		counter.text = str(current_time_left)
