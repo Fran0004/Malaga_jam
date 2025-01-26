@@ -10,7 +10,7 @@ var drain_multiplier: float
 @export var Type = OrganType.NONE
 @export var organName: String
 var time_accumulator: float = 0.0
-#var time_with_all_organs_above_50: float = 0.0
+#var time_with_all_organs_above_0: float = 0.0
 @onready var area_2d: Area2D = $Area2D
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 var drain_interval: float = 1.0  # Cada cuánto tiempo se drena energía (en segundos)
@@ -63,7 +63,7 @@ func _process(delta: float) -> void:
 
 func update_kidneys() -> void:
 	# Riñones: Limpian la sangre (quitan obstáculos)
-	if GameManager.kidneys_percentage >= 50:
+	if GameManager.kidneys_percentage == 0:
 		GameManager.kidneys_buff = true
 		GameManager.kidneys_debuff = false
 
@@ -83,21 +83,20 @@ func update_liver() -> void:
 		var organs = ["brain", "stomach", "pancreas", "kidneys", "heart"]
 		protected_organ = organs[randi() % organs.size()]
 		print("Hígado protege: ", protected_organ)
-	if GameManager.liver_percentage < 50:
+	if GameManager.liver_percentage == 0:
 		$"../Node/aviso".play()
 		GameManager.liver_buff = false
 		GameManager.liver_debuff = true
-	elif GameManager.liver_percentage >= 50:
+	elif GameManager.liver_percentage > 0:
 		GameManager.liver_debuff = false
 
 
 func update_stomach() -> void:
 	# Estómago: Genera glóbulos blancos (proteínas) que curan al personaje
-	if GameManager.stomach_percentage > 50:	# Verifica si el temporizador está en marcha
+	if GameManager.stomach_percentage == 0:	# Verifica si el temporizador está en marcha
 		GameManager.stomach_debuff = false
 		GameManager.stomach_buff = true
 	else:
-		$"../Node/aviso".play()
 		GameManager.stomach_debuff = true
 		GameManager.stomach_buff = false
 		
@@ -107,7 +106,7 @@ func update_stomach() -> void:
 
 		# Inicia el temporizador para generar proteínas
 		stomach_timer.start()
-	if GameManager.stomach_percentage < 50:
+	if GameManager.stomach_percentage == 0:
 		$"../Node/aviso".play()
 		GameManager.stomach_debuff = true
 		GameManager.stomach_buff = false
@@ -119,11 +118,11 @@ func update_stomach() -> void:
 
 func update_pancreas() -> void:
 	# Páncreas: Bloquea rutas cortas si su salud es baja
-	if GameManager.pancreas_percentage < 50:
+	if GameManager.pancreas_percentage == 0:
 		$"../Node/aviso".play()
 		GameManager.pancreas_buff = false
 		GameManager.pancreas_debuff = true
-	if GameManager.pancreas_percentage >= 50:
+	if GameManager.pancreas_percentage > 0:
 		GameManager.pancreas_buff = true
 		GameManager.pancreas_debuff = false
 		for route in short_routes:
@@ -134,11 +133,11 @@ func update_pancreas() -> void:
 func update_heart() -> void:
 	# Corazón: Afecta la velocidad del glóbulo
 	
-	if GameManager.heart_percentage < 50:
+	if GameManager.heart_percentage < 0:
 		$"../Node/aviso".play()
 		GameManager.heart_buff = false
 		GameManager.heart_debuff = true
-	if GameManager.heart_percentage >= 50:
+	if GameManager.heart_percentage >= 0:
 		GameManager.heart_buff = true
 		GameManager.heart_debuff = false
 		print("Velocidad reducida por baja salud del corazón")
