@@ -5,6 +5,7 @@ var obstacles: Array = []  # Lista de obstáculos para riñones
 var short_routes: Array = []  # Lista de rutas cortas para el páncreas
 var protected_organ: String = ""  # Organismo protegido por el hígado
 var time_with_all_organs_active: float = 0.0  # Tiempo con todos los órganos activos
+var drain_multiplier: float 
 @export var victory_time: float = 30.0  # Tiempo necesario para ganar
 @export var Type = OrganType.NONE
 @export var organName: String
@@ -71,6 +72,7 @@ func update_kidneys() -> void:
 		GameManager.kidneys_buff = false
 		GameManager.kidneys_debuff = true
 		
+		
 func update_liver() -> void:
 	# Hígado: Protege un órgano y detiene su desgaste de energía
 	if GameManager.liver_percentage > 75:
@@ -84,7 +86,6 @@ func update_liver() -> void:
 		GameManager.liver_debuff = true
 	elif GameManager.liver_percentage >= 50:
 		GameManager.liver_debuff = false
-		
 
 
 func update_stomach() -> void:
@@ -101,6 +102,11 @@ func update_stomach() -> void:
 		#GameManager.stomach_debuff = true
 		#GameManager.stomach_buff = false
 	
+#func delete_obstacles():
+#	if GameManager.pancreas_buff == true and stomach_timer.time_left <= 0.0 and not stomach_timer.is_stopped():
+#		obstacles[randi() % obstacles.size()].queue_free()
+#		stomach_timer.start()
+
 func update_pancreas() -> void:
 	# Páncreas: Bloquea rutas cortas si su salud es baja
 	if GameManager.pancreas_percentage < 30:
@@ -110,6 +116,7 @@ func update_pancreas() -> void:
 		for route in short_routes:
 			route.block()
 			print("Ruta corta bloqueada debido al páncreas")
+
 
 func update_heart() -> void:
 	# Corazón: Afecta la velocidad del glóbulo
@@ -129,10 +136,12 @@ func update_brain() -> void:
 
 func drain_organ_energy(organ: String) -> void:
 	# Verifica si el órgano especificado existe y si su energía actual es mayor que 0
-	if organ in GameManager.organs_health and GameManager.organs_health[organ]["current"] > 0:
+	if organ in GameManager.organs_health and GameManager.organs_health[organ]["current"] > 0 and not organ == protected_organ:
 		# Reduce la energía del órgano
-		GameManager.organs_health[organ]["current"] -= drain_amount
-
+		if GameManager.kidneys_debuff == true:
+			drain_multiplier = 1.2
+		else: drain_multiplier = 1
+		GameManager.organs_health[organ]["current"] -= drain_amount * drain_multiplier
 		# Asegura que la energía no baje de 0
 		GameManager.organs_health[organ]["current"] = max(0.0, GameManager.organs_health[organ]["current"])
 
