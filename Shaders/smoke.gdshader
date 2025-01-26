@@ -2,7 +2,7 @@ shader_type canvas_item;
 
 uniform sampler2D noise_texture: repeat_enable;
 uniform vec4 smoke_color: source_color;
-uniform float distortion_speed: hint_range(0.0, 5.0, 0.1) = .5;
+uniform float distortion_speed: hint_range(0.0, 5.0, 0.001) = .5;
 
 float random(vec2 st) {
     return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453);
