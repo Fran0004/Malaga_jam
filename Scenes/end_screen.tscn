@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxrchoc15cqhv"]
+[gd_scene load_steps=7 format=3 uid="uid://dxrchoc15cqhv"]
 
+[ext_resource type="Script" path="res://Scripts/end_screen.gd" id="1_634lb"]
 [ext_resource type="FontFile" uid="uid://kt7i38xc2dx" path="res://Assets/Fonts/Pixelout Personal Use Only.ttf" id="1_g1w4k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ubfoy"]
@@ -31,6 +32,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ubfoy")
+script = ExtResource("1_634lb")
 
 [node name="WinLoseLabel" type="Label" parent="."]
 layout_mode = 0

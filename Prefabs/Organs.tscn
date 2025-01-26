@@ -19,7 +19,7 @@ radius = 53.3385
 material = SubResource("ShaderMaterial_bm2ya")
 script = ExtResource("1_ukv7j")
 Type = 6
-drain_amount = 0.015
+drain_amount = 0.03
 
 [node name="Area2D" type="Area2D" parent="."]
 

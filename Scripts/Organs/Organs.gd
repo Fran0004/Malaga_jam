@@ -10,7 +10,7 @@ var drain_multiplier: float
 @export var Type = OrganType.NONE
 @export var organName: String
 var time_accumulator: float = 0.0
-var time_with_all_organs_above_50: float = 0.0
+#var time_with_all_organs_above_50: float = 0.0
 @onready var area_2d: Area2D = $Area2D
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 var drain_interval: float = 1.0  # Cada cuánto tiempo se drena energía (en segundos)
@@ -149,16 +149,17 @@ func update_heart() -> void:
 
 func update_brain() -> void:
 	# Cerebro: Reduce la interfaz y puede provocar la muerte
-	if GameManager.brain_percentage < 50:
+	if GameManager.brain_percentage < 15:
 		$"../Node/aviso".play()
 		GameManager.person_visible = false
 		GameManager.labels_visible = false
-	if GameManager.brain_percentage > 50:
+	if GameManager.brain_percentage > 15:
 		GameManager.person_visible = true
 		GameManager.labels_visible = true
 	if GameManager.brain_percentage <= 0:
-		get_tree().reload_current_scene()
-		print("¡Game Over! El cerebro ha fallado")
+		GameManager.losing = true
+		get_tree().change_scene_to_file("res://Scenes/end_screen.tscn")
+		GameManager.losing = false
 		
 
 func drain_organ_energy(organ: String) -> void:
@@ -172,25 +173,22 @@ func drain_organ_energy(organ: String) -> void:
 		# Asegura que la energía no baje de 0
 		GameManager.organs_health[organ]["current"] = max(0.0, GameManager.organs_health[organ]["current"])
 
-		# Debug para mostrar la energía restante del órgano
-		print("%s energía restante: %.2f" % [organ, GameManager.organs_health[organ]["current"]])
 
 func check_victory(delta: float) -> void:
-	if all_organs_above_50():  # Comprueba si todos los órganos están por encima del 50%
-		time_with_all_organs_above_50 += delta  # Incrementa el tiempo acumulado
-		if time_with_all_organs_above_50 >= victory_time:  # Comprueba si se cumple el tiempo necesario
-			print("¡Victoria! Todos los órganos por encima del 50% durante 30 segundos")
-			get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+	if all_organs_active():
+		time_with_all_organs_active += delta
+		if time_with_all_organs_active >= victory_time:
+			GameManager.winning = true
+			get_tree().change_scene_to_file("res://Scenes/end_screen.tscn")
+			GameManager.winning = false
 	else:
-		time_with_all_organs_above_50 = 0.0  # Reinicia el contador si algún órgano cae por debajo del 50%
+		time_with_all_organs_active = 0.0
 
-func all_organs_above_50() -> bool:
-	# Verifica si todos los órganos tienen más del 50% de salud
+func all_organs_active() -> bool:
 	for health in [GameManager.brain_percentage, GameManager.stomach_percentage, GameManager.pancreas_percentage, GameManager.kidneys_percentage, GameManager.heart_percentage, GameManager.liver_percentage]:
-		if health <= 30.0:  # Si alguno está por debajo o igual al 50%
+		if health <= 0:
 			return false
 	return true
-
 ##TIMEOUTS
 func _on_stomach_timer_timeout() -> void:
 	print("Proteina generada")

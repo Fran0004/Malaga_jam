@@ -11,11 +11,11 @@ var organ_name: String = ""
 # Variables de salud de los órganos
 @export var organs_health: Dictionary = {
 	"brain": {"current": 10.0, "max": 10.0},
-	"stomach": {"current": 5.0, "max": 10.0},
-	"pancreas": {"current": 5.0, "max": 10.0},
-	"kidneys": {"current": 5.0, "max": 10.0},
-	"liver": {"current": 5.0, "max": 10.0},
-	"heart": {"current": 5.0, "max": 10.0}
+	"stomach": {"current": 0.0, "max": 10.0},
+	"pancreas": {"current": 0.0, "max": 10.0},
+	"kidneys": {"current": 0.0, "max": 10.0},
+	"liver": {"current": 0.0, "max": 10.0},
+	"heart": {"current": 0.0, "max": 10.0}
 }
 
 var heal_organ_amount: float = 0.3
