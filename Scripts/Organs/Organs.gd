@@ -90,14 +90,19 @@ func update_liver() -> void:
 
 func update_stomach() -> void:
 	# Estómago: Genera glóbulos blancos (proteínas) que curan al personaje
-	if GameManager.stomach_percentage > 0:	# Verifica si el temporizador está en marcha
+	if GameManager.stomach_percentage > 50:	# Verifica si el temporizador está en marcha
 		GameManager.stomach_debuff = false
 		GameManager.stomach_buff = true
-		if not stomach_timer.is_stopped():
-			return  # Salimos si el temporizador ya está corriendo
+	else:
+		GameManager.stomach_debuff = true
+		GameManager.stomach_buff = false
+		
+	
+		#if not stomach_timer.is_stopped():
+			#return  # Salimos si el temporizador ya está corriendo
 
 		# Inicia el temporizador para generar proteínas
-		stomach_timer.start()
+		#stomach_timer.start()
 	#if GameManager.stomach_percentage < 10:
 		#GameManager.stomach_debuff = true
 		#GameManager.stomach_buff = false
@@ -147,6 +152,8 @@ func drain_organ_energy(organ: String) -> void:
 		# Reduce la energía del órgano
 		if GameManager.kidneys_debuff == true:
 			drain_multiplier = 1.2
+		elif GameManager.stomach_debuff == true:
+			GameManager.organs_health["stomach"]["current"] -= drain_amount * drain_multiplier
 		else: drain_multiplier = 1
 		GameManager.organs_health[organ]["current"] -= drain_amount * drain_multiplier
 		# Asegura que la energía no baje de 0
