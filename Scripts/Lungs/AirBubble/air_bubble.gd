@@ -16,7 +16,7 @@ var soundManager: AudioStreamPlayer2D
 
 func _ready():
 	soundManager = AudioStreamPlayer2D.new()
-	soundManager.stream = bubbleSound
+	
 	add_child(soundManager)
 	
 	
@@ -37,6 +37,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		if GameManager.oxigen_player < GameManager.max_oxigen_player:
 			GameManager.oxigen_player += 1
+			soundManager.stream = bubbleSound
 			soundManager.play()
 			self.queue_free()
 		else:
