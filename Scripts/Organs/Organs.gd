@@ -96,7 +96,6 @@ func update_liver() -> void:
 			var organs: Array[Variant] = ["brain", "stomach", "pancreas", "kidneys", "heart"]
 			var organ_name = organs[randi() % organs.size()]
 			GameManager.organs_health[organ_name]["protected"] = true
-			print("Hígado protege: ", organ_name)
 
 	if GameManager.liver_percentage < 50:
 		GameManager.liver_buff = false
@@ -110,7 +109,6 @@ func update_liver() -> void:
 		GameManager.liver_debuff = false
 		var organs = ["brain", "stomach", "pancreas", "kidneys", "heart"]
 		var protected_organ = organs[randi() % organs.size()]
-		print("Hígado protege: ", protected_organ)
 	if GameManager.liver_percentage == 0:
 		$"../Node/aviso".play()
 		GameManager.liver_buff = false
@@ -198,7 +196,6 @@ func update_heart() -> void:
 	if GameManager.heart_percentage >= 0:
 		GameManager.heart_buff = true
 		GameManager.heart_debuff = false
-		print("Velocidad reducida por baja salud del corazón")
 	if GameManager.heart_debuff == true and GameManager.SPEED > 175:
 		GameManager.SPEED = GameManager.SPEED * 0.95
 

@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var max_bubbles: int = 20
+@export var max_bubbles: int = 100
 @export var bubble_scene: PackedScene
 var current_bubbles: int = 0
 

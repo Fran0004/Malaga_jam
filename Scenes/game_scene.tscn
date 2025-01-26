@@ -217,9 +217,9 @@ door_type = "side-doors"
 
 [node name="Node" type="Node" parent="."]
 
-[node name="burbuja" type="AudioStreamPlayer2D" parent="Node"]
+[node name="burbuja" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource("12_8mgef")
 volume_db = 10.0
 
-[node name="aviso" type="AudioStreamPlayer2D" parent="Node"]
+[node name="aviso" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource("13_ftwoq")
