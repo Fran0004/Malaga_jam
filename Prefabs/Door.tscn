@@ -58,18 +58,20 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4shtv"]
-size = Vector2(64, 17)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3ta1"]
+size = Vector2(16.2643, 4.06607)
 
-[node name="Door" type="Area2D"]
-collision_layer = 2
+[node name="Door" type="CharacterBody2D"]
+position = Vector2(458, 149)
 script = ExtResource("1_76u0i")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Doors"]]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-6, -2)
 sprite_frames = SubResource("SpriteFrames_6hyyh")
-animation = &"close"
+animation = &"open"
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-6, -2.5)
-shape = SubResource("RectangleShape2D_4shtv")
+position = Vector2(-6, -3)
+scale = Vector2(3.935, 3.935)
+shape = SubResource("RectangleShape2D_x3ta1")

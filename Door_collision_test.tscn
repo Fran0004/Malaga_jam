@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2lvifu68ucy4"]
+
+[ext_resource type="PackedScene" uid="uid://bwlku60oche38" path="res://Prefabs/Door.tscn" id="1_diy0p"]
+[ext_resource type="PackedScene" uid="uid://du3n3tp1kn4xj" path="res://Prefabs/player.tscn" id="2_var7l"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Door" parent="." instance=ExtResource("1_diy0p")]
+position = Vector2(229, 403)
+rotation = 1.5708
+scale = Vector2(5.595, 5.595)
+
+[node name="Player" parent="." instance=ExtResource("2_var7l")]
+position = Vector2(1071, 370)

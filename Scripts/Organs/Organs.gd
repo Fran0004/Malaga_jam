@@ -15,6 +15,9 @@ var time_with_all_organs_above_50: float = 0.0
 var drain_interval: float = 1.0  # Cada cuánto tiempo se drena energía (en segundos)
 var mainDoors: Array[Node]
 var sideDoors: Array[Node]
+var closeMain: Array[Node]
+var closeSide: Array[Node]
+var closeCount: Dictionary = {'main': 4, 'side': 4}
 
 enum OrganType{
 	NONE,
@@ -32,12 +35,13 @@ enum OrganType{
 @onready var stomach_timer: Timer = $StomachTimer
 @onready var organs_sprite: Sprite2D = $"."
 
-var closeMain: Array[Node]
-var closeSide: Array[Node]
+
 
 func _ready() -> void:
 	mainDoors = get_tree().get_nodes_in_group("main-doors")  # Lista de rutas cortas para páncreas
-	sideDoors = get_tree().get_nodes_in_group("side-doors")  # Lista de rutas cortas para páncreas
+	sideDoors = get_tree().get_nodes_in_group("side-doors")
+	closeMain = getRandArraySelection(mainDoors, closeCount['main'])
+	closeSide = getRandArraySelection(sideDoors, closeCount['side'])  # Lista de rutas cortas para páncreas
 	if Type == OrganType.NONE:
 		collision_shape_2d.disabled
 		
@@ -99,7 +103,6 @@ func update_liver() -> void:
 
 		for organ in GameManager.organs_health:
 			GameManager.organs_health[organ]["protected"] = false
-			print("Hígado desprotege: ", organ)
 
 	elif GameManager.liver_percentage >= 50:
 		GameManager.liver_debuff = false
@@ -130,7 +133,6 @@ func update_stomach() -> void:
 
 func update_pancreas() -> void:
 	# Páncreas: Bloquea rutas cortas si su salud es baja
-	var closeCount: Dictionary = {'main': 4, 'side': 4}
 
 	if GameManager.pancreas_percentage < 30 and not GameManager.pancreas_debuff:
 
@@ -142,13 +144,18 @@ func update_pancreas() -> void:
 		closeMain = getRandArraySelection(mainDoors, closeCount['main'])
 		closeSide = getRandArraySelection(sideDoors, closeCount['side'])
 
-		for door in mainDoors:
+		for door in closeMain:
 			door.close()
-		for door in sideDoors:
+		for door in closeSide:
+			door.close()
+	
+	elif GameManager.pancreas_percentage < 30:
+		for door in closeMain:
+			door.close()
+		for door in closeSide:
 			door.close()
 
 	elif GameManager.pancreas_percentage > 50:
-		print('Open doors')
 		GameManager.pancreas_buff = true
 		GameManager.pancreas_debuff = false
 
@@ -204,7 +211,6 @@ func drain_organ_energy(organ: String) -> void:
 		GameManager.organs_health[organ]["current"] = max(0.0, GameManager.organs_health[organ]["current"])
 
 		# Debug para mostrar la energía restante del órgano
-		print("%s energía restante: %.2f" % [organ, GameManager.organs_health[organ]["current"]])
 
 func check_victory(delta: float) -> void:
 	if all_organs_above_50():  # Comprueba si todos los órganos están por encima del 50%

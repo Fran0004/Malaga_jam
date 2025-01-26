@@ -1,4 +1,4 @@
-extends Area2D  # or Node2D
+extends CharacterBody2D  # or Node2D
 
 
 var is_open: bool = true
@@ -11,9 +11,11 @@ var is_open: bool = true
 
 func _ready():
 	# Initial closed state
-	collision.disabled = true
+	collision.set_deferred("disabled", true)
 	add_to_group(door_type)  # Auto-add to the specified group
-	body_entered.connect(_on_body_entered)
+	open()
+	animated_sprite.play("open")
+
 
 func toggle_door():
 	if is_open:
@@ -27,16 +29,18 @@ func open():
 		is_open = true
 		print("is_open: ", is_open)
 		animated_sprite.play("open")
-		collision.disabled = true  # Disable collision when open
+		collision.set_deferred("disabled", true)
 
 func close():
 	if is_open:
 		print('Closing door', door_id)
 		is_open = false
 		animated_sprite.play("close")
-		collision.disabled = false  # Enable collision when closed
+		collision.set_deferred("disabled", false)
 		
-func _on_body_entered():
-	print('Collision detected')
+func _on_body_entered(body: Node2D):
+	print("Collision detected with:", body.name)
+	if body.name == "Player":  # Ensure player is in the "player" group
+		print("Player entered door area")
 
 # Choose ONE interaction method below
