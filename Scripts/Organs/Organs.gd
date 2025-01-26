@@ -124,7 +124,14 @@ func update_heart() -> void:
 	if GameManager.heart_percentage < 30:
 		GameManager.heart_buff = false
 		GameManager.heart_debuff = true
+	if GameManager.heart_percentage >= 30:
+		GameManager.heart_buff = true
+		GameManager.heart_debuff = false
 		print("Velocidad reducida por baja salud del corazón")
+	if GameManager.heart_debuff == true and GameManager.SPEED > 175:
+		GameManager.SPEED = GameManager.SPEED * 0.95
+
+
 func update_brain() -> void:
 	# Cerebro: Reduce la interfaz y puede provocar la muerte
 	if GameManager.brain_percentage < 50:

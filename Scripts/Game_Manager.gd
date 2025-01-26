@@ -6,6 +6,7 @@ extends Node
 var can_heal: bool = false
 var key_sprite_show: bool = can_heal
 var organ_name: String = ""
+@export var SPEED = 300.0 
 
 # Variables de salud de los órganos
 @export var organs_health: Dictionary = {
