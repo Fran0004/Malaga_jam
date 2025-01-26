@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dk6rg5w7tysep"]
+
+[ext_resource type="Shader" path="res://Shaders/smoke.gdshader" id="1_r5a0d"]
+[ext_resource type="Texture2D" uid="uid://dylpitdpxvbgm" path="res://icon.svg" id="2_xnscc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jsb6s"]
+shader = ExtResource("1_r5a0d")
+shader_parameter/smoke_color = Color(0.8, 0.00392157, 0, 0.741176)
+shader_parameter/distortion_speed = 0.1
+
+[node name="Smoke" type="Sprite2D"]
+material = SubResource("ShaderMaterial_jsb6s")
+texture = ExtResource("2_xnscc")
