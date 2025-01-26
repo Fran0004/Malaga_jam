@@ -27,3 +27,10 @@ func _on_splash_animator_animation_finished(anim_name: StringName) -> void:
 		button_play.visible=true
 	button_option.visible=true
 	pass # Replace with function body.
+
+
+
+
+func _on_options_button_pressed() -> void:
+	get_tree().quit()
+	pass # Replace with function body.

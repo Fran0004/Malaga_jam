@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dyw220r20tsvl"]
+[gd_scene load_steps=18 format=3 uid="uid://dyw220r20tsvl"]
 
 [ext_resource type="Texture2D" uid="uid://dvt384vcrf32w" path="res://Hud/body hud/body hud.png" id="1_34yu5"]
 [ext_resource type="Script" path="res://Scripts/hud.gd" id="1_tt474"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dxb13m33u3n4x" path="res://Assets/Sprites/Lungs/bubble.png" id="10_n8dgb"]
 [ext_resource type="FontFile" uid="uid://kt7i38xc2dx" path="res://Assets/Fonts/Pixelout Personal Use Only.ttf" id="11_4upek"]
 [ext_resource type="Script" path="res://Prefabs/counter.gd" id="13_0vexf"]
+[ext_resource type="Texture2D" uid="uid://c0f6lblti1m42" path="res://Assets/Sprites/Menus/icons8-mute-50.png" id="14_40fc6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1t7ue"]
 font = ExtResource("9_pdjvo")
@@ -188,3 +189,19 @@ script = ExtResource("13_0vexf")
 [node name="Timer" type="Timer" parent="Counter"]
 one_shot = true
 autostart = true
+
+[node name="MuteHud" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MuteButton" type="TextureButton" parent="MuteHud"]
+z_index = 2
+layout_mode = 0
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 63.0
+offset_bottom = 63.0
+texture_normal = ExtResource("14_40fc6")
+
+[connection signal="pressed" from="MuteHud/MuteButton" to="." method="_on_mute_button_pressed"]

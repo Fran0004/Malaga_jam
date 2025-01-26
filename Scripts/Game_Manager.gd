@@ -47,7 +47,17 @@ var heart_debuff: bool = false
 
 var person_visible: bool = true
 var labels_visible: bool = true
+var mute_music:bool = false:
+	set(value):
+		mute_music = value
+		AudioServer.set_bus_mute(master_bus,mute_music)
+	get:
+		return mute_music
 
+var mute_icon = load("res://Assets/Sprites/Menus/icons8-mute-50.png")
+var volume_icon = load("res://Assets/Sprites/Menus/icons8-volume-50.png")
+
+var master_bus = AudioServer.get_bus_index("Master")
 
 func _process(delta: float) -> void:
 	brain_percentage = (organs_health["brain"]["current"]/organs_health["brain"]["max"]) * 100
