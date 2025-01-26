@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dgr40cv7cm0oe"]
+[gd_scene load_steps=14 format=3 uid="uid://dgr40cv7cm0oe"]
 
 [ext_resource type="PackedScene" uid="uid://bloo1xgg6cjq1" path="res://Prefabs/map.tscn" id="1_85csv"]
 [ext_resource type="PackedScene" uid="uid://du3n3tp1kn4xj" path="res://Prefabs/player.tscn" id="2_r4ihi"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://xwbdq6snjks" path="res://Assets/Sprites/Organs/pancrea.png" id="8_kswur"]
 [ext_resource type="Texture2D" uid="uid://dx0o5mmk45pr3" path="res://Assets/Sprites/Organs/higado.png" id="9_gl5yr"]
 [ext_resource type="Texture2D" uid="uid://damtfk5ixl45h" path="res://Assets/Sprites/Organs/corazon.png" id="10_n0der"]
+[ext_resource type="AudioStream" uid="uid://b3nhn8gsjwn78" path="res://Assets/Sounds/bubbles-003-6397 (mp3cut.net).mp3" id="12_8mgef"]
+[ext_resource type="AudioStream" uid="uid://dbmwhswxagx2n" path="res://Assets/Sounds/aviso.mp3" id="13_ftwoq"]
 
 [node name="Main" type="Node2D"]
 texture_filter = 1
@@ -40,14 +42,12 @@ scale = Vector2(5.07813, 5.07813)
 texture = ExtResource("5_ppefq")
 Type = 2
 organName = "brain"
-drain_amount = 0.02
 
 [node name="Stomach" parent="." instance=ExtResource("3_b4ni0")]
 position = Vector2(-815, 271)
 scale = Vector2(6.23437, 6.23437)
 texture = ExtResource("6_6iwdy")
 organName = "stomach"
-drain_amount = 0.05
 
 [node name="Kidneys" parent="." instance=ExtResource("3_b4ni0")]
 position = Vector2(-495, 1687)
@@ -55,7 +55,6 @@ scale = Vector2(5.30469, 5.30469)
 texture = ExtResource("7_6manq")
 Type = 3
 organName = "kidneys"
-drain_amount = 0.05
 
 [node name="Pancreas" parent="." instance=ExtResource("3_b4ni0")]
 position = Vector2(1254, 1802)
@@ -63,7 +62,6 @@ scale = Vector2(4.13672, 4.13672)
 texture = ExtResource("8_kswur")
 Type = 5
 organName = "pancreas"
-drain_amount = 0.05
 
 [node name="Liver" parent="." instance=ExtResource("3_b4ni0")]
 position = Vector2(2430, 981)
@@ -71,7 +69,6 @@ scale = Vector2(5.30078, 5.30078)
 texture = ExtResource("9_gl5yr")
 Type = 4
 organName = "liver"
-drain_amount = 0.05
 
 [node name="Heart" parent="." instance=ExtResource("3_b4ni0")]
 position = Vector2(2485, -175)
@@ -79,4 +76,12 @@ scale = Vector2(4.28125, 4.28125)
 texture = ExtResource("10_n0der")
 Type = 1
 organName = "heart"
-drain_amount = 0.05
+
+[node name="Node" type="Node" parent="."]
+
+[node name="burbuja" type="AudioStreamPlayer2D" parent="Node"]
+stream = ExtResource("12_8mgef")
+volume_db = 10.0
+
+[node name="aviso" type="AudioStreamPlayer2D" parent="Node"]
+stream = ExtResource("13_ftwoq")

@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://b3jlbpgmk8ie7"]
+[gd_scene load_steps=15 format=3 uid="uid://b3jlbpgmk8ie7"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_uxo7o"]
 [ext_resource type="Theme" uid="uid://vydp5cpe6ed" path="res://Assets/Theme/MainMenuTheme.tres" id="2_bb0k8"]
 [ext_resource type="Texture2D" uid="uid://cyej45m8nue85" path="res://Hud/main menu/glob logo main menu.png" id="3_x6toh"]
 [ext_resource type="Texture2D" uid="uid://crlcpdkqma68h" path="res://Hud/main menu/rush logo main menu.png" id="4_fqu00"]
+[ext_resource type="AudioStream" uid="uid://iwk0kucw67ni" path="res://Assets/Sounds/click.mp3" id="5_diy25"]
+[ext_resource type="AudioStream" uid="uid://hc0of4djrhpu" path="res://Assets/Sounds/musica menu.mp3" id="6_ldojn"]
 
 [sub_resource type="Animation" id="Animation_dor6q"]
 resource_name = "Logo"
@@ -312,7 +314,7 @@ offset_right = 878.0
 offset_bottom = 619.0
 theme = ExtResource("2_bb0k8")
 theme_override_font_sizes/font_size = 48
-text = "EXIT"
+text = "OPTIONS"
 
 [node name="PlayButton" type="Button" parent="."]
 z_index = 1
@@ -329,6 +331,15 @@ libraries = {
 "": SubResource("AnimationLibrary_2ltjb")
 }
 
-[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
+[node name="Node" type="Node" parent="."]
+
+[node name="click" type="AudioStreamPlayer2D" parent="Node"]
+stream = ExtResource("5_diy25")
+
+[node name="audio menu" type="AudioStreamPlayer2D" parent="Node"]
+stream = ExtResource("6_ldojn")
+autoplay = true
+
+[connection signal="mouse_entered" from="PlayButton" to="." method="_on_play_button_mouse_entered"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="animation_finished" from="SplashAnimator" to="." method="_on_splash_animator_animation_finished"]

@@ -70,6 +70,7 @@ func update_kidneys() -> void:
 		for obstacle in obstacles:
 			obstacle.queue_free()  # Eliminar obstáculos si los riñones están saludables
 	else:
+		$"../Node/aviso".play()
 		GameManager.kidneys_buff = false
 		GameManager.kidneys_debuff = true
 		
@@ -83,6 +84,7 @@ func update_liver() -> void:
 		protected_organ = organs[randi() % organs.size()]
 		print("Hígado protege: ", protected_organ)
 	if GameManager.liver_percentage < 50:
+		$"../Node/aviso".play()
 		GameManager.liver_buff = false
 		GameManager.liver_debuff = true
 	elif GameManager.liver_percentage >= 50:
@@ -95,6 +97,7 @@ func update_stomach() -> void:
 		GameManager.stomach_debuff = false
 		GameManager.stomach_buff = true
 	else:
+		$"../Node/aviso".play()
 		GameManager.stomach_debuff = true
 		GameManager.stomach_buff = false
 		
@@ -105,6 +108,7 @@ func update_stomach() -> void:
 		# Inicia el temporizador para generar proteínas
 		stomach_timer.start()
 	if GameManager.stomach_percentage < 50:
+		$"../Node/aviso".play()
 		GameManager.stomach_debuff = true
 		GameManager.stomach_buff = false
 	
@@ -116,6 +120,7 @@ func update_stomach() -> void:
 func update_pancreas() -> void:
 	# Páncreas: Bloquea rutas cortas si su salud es baja
 	if GameManager.pancreas_percentage < 50:
+		$"../Node/aviso".play()
 		GameManager.pancreas_buff = false
 		GameManager.pancreas_debuff = true
 	if GameManager.pancreas_percentage >= 50:
@@ -130,6 +135,7 @@ func update_heart() -> void:
 	# Corazón: Afecta la velocidad del glóbulo
 	
 	if GameManager.heart_percentage < 50:
+		$"../Node/aviso".play()
 		GameManager.heart_buff = false
 		GameManager.heart_debuff = true
 	if GameManager.heart_percentage >= 50:
@@ -144,6 +150,7 @@ func update_heart() -> void:
 func update_brain() -> void:
 	# Cerebro: Reduce la interfaz y puede provocar la muerte
 	if GameManager.brain_percentage < 50:
+		$"../Node/aviso".play()
 		GameManager.person_visible = false
 		GameManager.labels_visible = false
 	if GameManager.brain_percentage > 50:

@@ -13,11 +13,9 @@ func _ready() -> void:
 	button_option.disabled=true
 	button_play.visible=false
 	button_option.visible=false
-
+	
 func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/game_scene.tscn")
-
-
 
 func _on_splash_animator_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "splashAnimation":
@@ -29,8 +27,6 @@ func _on_splash_animator_animation_finished(anim_name: StringName) -> void:
 	pass # Replace with function body.
 
 
-
-
-func _on_options_button_pressed() -> void:
-	get_tree().quit()
+func _on_play_button_mouse_entered() -> void:
+	$Node/click.play()
 	pass # Replace with function body.

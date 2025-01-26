@@ -1,5 +1,8 @@
 extends Area2D
 
+var bubbleSound: AudioStreamMP3 = load("res://Assets/Sounds/burbujacoger.mp3")
+var soundManager: AudioStreamPlayer2D
+
 ## Movement properties
 #var speed : float
 #var direction : float
@@ -11,7 +14,12 @@ extends Area2D
 #@export var room_radius : float = 400.0    # Circle radius
 #@export var room_center : Vector2 = Vector2(200, 100)  # Center of circular area
 
-#func _ready():
+func _ready():
+	soundManager = AudioStreamPlayer2D.new()
+	
+	add_child(soundManager)
+	
+	
 	#pass
 #func _process(delta):
 	#pass
@@ -29,6 +37,8 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		if GameManager.oxigen_player < GameManager.max_oxigen_player:
 			GameManager.oxigen_player += 1
+			soundManager.stream = bubbleSound
+			soundManager.play()
 			self.queue_free()
 		else:
 			pass
