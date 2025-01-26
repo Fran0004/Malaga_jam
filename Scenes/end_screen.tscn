@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxrchoc15cqhv"]
+
+[ext_resource type="FontFile" uid="uid://kt7i38xc2dx" path="res://Assets/Fonts/Pixelout Personal Use Only.ttf" id="1_g1w4k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ubfoy"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_top = 1024
+border_color = Color(0.108225, 0.108225, 0.108225, 1)
+border_blend = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_jthli"]
+font = ExtResource("1_g1w4k")
+font_size = 96
+font_color = Color(0.808492, 0.471412, 1, 1)
+outline_size = 5
+outline_color = Color(0.632442, 0.00244273, 0.8664, 1)
+
+[sub_resource type="Animation" id="Animation_y4q4g"]
+resource_name = "EndAnimation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1sb67"]
+_data = {
+"EndAnimation": SubResource("Animation_y4q4g")
+}
+
+[node name="EndScreen" type="Panel"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ubfoy")
+
+[node name="WinLoseLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 186.0
+offset_right = 1166.0
+offset_bottom = 318.0
+text = "VICTORIA"
+label_settings = SubResource("LabelSettings_jthli")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1sb67")
+}

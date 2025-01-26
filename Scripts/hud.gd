@@ -22,6 +22,9 @@ extends Control
 @onready var counter: Label = $Counter
 @onready var bubble_label: Label = $BubbleHud/BubbleLabel
 
+# MuteButton
+@onready var mute_button: TextureButton = $MuteHud/MuteButton
+
 func _process(delta: float) -> void:
 	body_hud.visible = GameManager.person_visible
 	labels.visible = GameManager.labels_visible
@@ -31,12 +34,26 @@ func _process(delta: float) -> void:
 	alert_liver.visible = GameManager.liver_debuff
 	alert_heart.visible = GameManager.heart_debuff
 	alert_kidneys.visible = GameManager.kidneys_debuff
-	alert_brain.visible = GameManager.brain_debuff
+	alert_pancreas.visible = GameManager.pancreas_debuff
 	
-	brain_label.text = "%.2f" % GameManager.brain_percentage +"%"
-	heart_label.text = "%.2f" % GameManager.heart_percentage +"%"
-	stomach_label.text = "%.2f" % GameManager.stomach_percentage +"%"
-	liver_label.text = "%.2f" % GameManager.liver_percentage +"%"
-	pancreas_label.text = "%.2f" % GameManager.pancreas_percentage +"%"
-	kidneys_label.text = "%.2f" % GameManager.kidneys_percentage +"%"
+	brain_label.text = "%.1f" % GameManager.brain_percentage +"%"
+	heart_label.text = "%.1f" % GameManager.heart_percentage +"%"
+	stomach_label.text = "%.1f" % GameManager.stomach_percentage +"%"
+	liver_label.text = "%.1f" % GameManager.liver_percentage +"%"
+	pancreas_label.text = "%.1f" % GameManager.pancreas_percentage +"%"
+	kidneys_label.text = "%.1f" % GameManager.kidneys_percentage +"%"
 	
+
+
+func _on_mute_button_pressed() -> void:
+	if GameManager.mute_music:
+		#unmute
+		GameManager.mute_music=false
+		mute_button.texture_normal = GameManager.mute_icon
+		print("El volumen esta mute")
+	else:
+		#mute
+		GameManager.mute_music=true
+		mute_button.texture_normal = GameManager.volume_icon
+		print("El volumen esta unmute")
+	pass # Replace with function body.

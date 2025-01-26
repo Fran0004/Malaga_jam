@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkwqvr0c6wd6d"
-path="res://.godot/imported/tileset_rinones.png-50f2b9976669dd7fb6130fcf70cac1b3.ctex"
+uid="uid://c0f6lblti1m42"
+path="res://.godot/imported/icons8-mute-50.png-8c461e3ec99e4f1707a2cf5b253fda19.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tileset/tileset_rinones.png"
-dest_files=["res://.godot/imported/tileset_rinones.png-50f2b9976669dd7fb6130fcf70cac1b3.ctex"]
+source_file="res://Assets/Sprites/Menus/icons8-mute-50.png"
+dest_files=["res://.godot/imported/icons8-mute-50.png-8c461e3ec99e4f1707a2cf5b253fda19.ctex"]
 
 [params]
 
