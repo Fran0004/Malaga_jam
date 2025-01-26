@@ -9,6 +9,8 @@ var time_with_all_organs_active: float = 0.0  # Tiempo con todos los órganos ac
 @export var Type = OrganType.NONE
 @export var organName: String
 var time_accumulator: float = 0.0
+@onready var area_2d: Area2D = $Area2D
+@onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 var drain_interval: float = 1.0  # Cada cuánto tiempo se drena energía (en segundos)
 @export var drain_amount: float = 0.005  # Cantidad de energía que se pierde por segundo# Called when the node enters the scene tree for the first time.
 enum OrganType{
@@ -24,8 +26,10 @@ enum OrganType{
 ##TIMERS
 @onready var stomach_timer: Timer = $StomachTimer
 @onready var organs_sprite: Sprite2D = $"."
-
-
+func _ready() -> void:
+	if Type == OrganType.NONE:
+		collision_shape_2d.disabled
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	match Type:
@@ -159,8 +163,11 @@ func _on_stomach_timer_timeout() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		GameManager.key_sprite_show = true
-
+		GameManager.organ_name = organName
+		GameManager.can_heal = true
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
-			GameManager.key_sprite_show = false
+		GameManager.key_sprite_show = false
+		GameManager.organ_name = ""
+		GameManager.can_heal = false
