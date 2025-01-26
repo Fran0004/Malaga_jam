@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dyw220r20tsvl"]
+[gd_scene load_steps=17 format=3 uid="uid://dyw220r20tsvl"]
 
 [ext_resource type="Texture2D" uid="uid://dvt384vcrf32w" path="res://Hud/body hud/body hud.png" id="1_34yu5"]
 [ext_resource type="Script" path="res://Scripts/hud.gd" id="1_tt474"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Prefabs/bubble_hud.gd" id="10_f43l1"]
 [ext_resource type="Texture2D" uid="uid://dxb13m33u3n4x" path="res://Assets/Sprites/Lungs/bubble.png" id="10_n8dgb"]
 [ext_resource type="FontFile" uid="uid://kt7i38xc2dx" path="res://Assets/Fonts/Pixelout Personal Use Only.ttf" id="11_4upek"]
+[ext_resource type="Script" path="res://Prefabs/counter.gd" id="13_0vexf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1t7ue"]
 font = ExtResource("9_pdjvo")
@@ -179,6 +180,11 @@ offset_top = 20.0
 offset_right = 216.0
 offset_bottom = 84.0
 grow_horizontal = 2
-text = "69"
+text = "0"
 label_settings = SubResource("LabelSettings_feji2")
 horizontal_alignment = 1
+script = ExtResource("13_0vexf")
+
+[node name="Timer" type="Timer" parent="Counter"]
+one_shot = true
+autostart = true
