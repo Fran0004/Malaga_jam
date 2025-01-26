@@ -22,6 +22,9 @@ extends Control
 @onready var counter: Label = $Counter
 @onready var bubble_label: Label = $BubbleHud/BubbleLabel
 
+# MuteButton
+@onready var mute_button: TextureButton = $MuteHud/MuteButton
+
 func _process(delta: float) -> void:
 	body_hud.visible = GameManager.person_visible
 	labels.visible = GameManager.labels_visible
@@ -40,3 +43,17 @@ func _process(delta: float) -> void:
 	pancreas_label.text = "%.1f" % GameManager.pancreas_percentage +"%"
 	kidneys_label.text = "%.1f" % GameManager.kidneys_percentage +"%"
 	
+
+
+func _on_mute_button_pressed() -> void:
+	if GameManager.mute_music:
+		#unmute
+		GameManager.mute_music=false
+		mute_button.texture_normal = GameManager.mute_icon
+		print("El volumen esta mute")
+	else:
+		#mute
+		GameManager.mute_music=true
+		mute_button.texture_normal = GameManager.volume_icon
+		print("El volumen esta unmute")
+	pass # Replace with function body.

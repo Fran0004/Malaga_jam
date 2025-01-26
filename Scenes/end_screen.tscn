@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxrchoc15cqhv"]
+[gd_scene load_steps=8 format=3 uid="uid://dxrchoc15cqhv"]
 
+[ext_resource type="Script" path="res://Scripts/end_screen.gd" id="1_634lb"]
 [ext_resource type="FontFile" uid="uid://kt7i38xc2dx" path="res://Assets/Fonts/Pixelout Personal Use Only.ttf" id="1_g1w4k"]
+[ext_resource type="Theme" uid="uid://vydp5cpe6ed" path="res://Assets/Theme/MainMenuTheme.tres" id="3_jjemt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ubfoy"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -31,13 +33,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ubfoy")
+script = ExtResource("1_634lb")
 
 [node name="WinLoseLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 137.0
-offset_top = 186.0
-offset_right = 1166.0
-offset_bottom = 318.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -514.5
+offset_top = 196.0
+offset_right = 514.5
+offset_bottom = 328.0
+grow_horizontal = 2
 text = "VICTORIA"
 label_settings = SubResource("LabelSettings_jthli")
 horizontal_alignment = 1
@@ -47,3 +54,21 @@ vertical_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_1sb67")
 }
+
+[node name="MainMenuButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -178.5
+offset_top = -277.0
+offset_right = 178.5
+offset_bottom = -213.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_jjemt")
+text = "Main Menu"
+
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]

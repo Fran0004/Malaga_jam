@@ -9,7 +9,7 @@ var drain_multiplier: float
 @export var Type = OrganType.NONE
 @export var organName: String
 var time_accumulator: float = 0.0
-var time_with_all_organs_above_50: float = 0.0
+#var time_with_all_organs_above_0: float = 0.0
 @onready var area_2d: Area2D = $Area2D
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 var drain_interval: float = 1.0  # Cada cuánto tiempo se drena energía (en segundos)
@@ -75,13 +75,14 @@ func _process(delta: float) -> void:
 	
 func update_kidneys() -> void:
 	# Riñones: Limpian la sangre (quitan obstáculos)
-	if GameManager.kidneys_percentage >= 50:
+	if GameManager.kidneys_percentage == 0:
 		GameManager.kidneys_buff = true
 		GameManager.kidneys_debuff = false
 
 		for obstacle in obstacles:
 			obstacle.queue_free()  # Eliminar obstáculos si los riñones están saludables
 	else:
+		$"../Node/aviso".play()
 		GameManager.kidneys_buff = false
 		GameManager.kidneys_debuff = true
 
@@ -105,11 +106,21 @@ func update_liver() -> void:
 			GameManager.organs_health[organ]["protected"] = false
 
 	elif GameManager.liver_percentage >= 50:
+		GameManager.liver_buff = true
+		GameManager.liver_debuff = false
+		var organs = ["brain", "stomach", "pancreas", "kidneys", "heart"]
+		protected_organ = organs[randi() % organs.size()]
+		print("Hígado protege: ", protected_organ)
+	if GameManager.liver_percentage == 0:
+		$"../Node/aviso".play()
+		GameManager.liver_buff = false
+		GameManager.liver_debuff = true
+	elif GameManager.liver_percentage > 0:
 		GameManager.liver_debuff = false
 
 func update_stomach() -> void:
 	# Estómago: Genera glóbulos blancos (proteínas) que curan al personaje
-	if GameManager.stomach_percentage > 50:	# Verifica si el temporizador está en marcha
+	if GameManager.stomach_percentage == 0:	# Verifica si el temporizador está en marcha
 		GameManager.stomach_debuff = false
 		GameManager.stomach_buff = true
 	else:
@@ -122,7 +133,8 @@ func update_stomach() -> void:
 
 		# Inicia el temporizador para generar proteínas
 		stomach_timer.start()
-	if GameManager.stomach_percentage < 50:
+	if GameManager.stomach_percentage == 0:
+		$"../Node/aviso".play()
 		GameManager.stomach_debuff = true
 		GameManager.stomach_buff = false
 	
@@ -156,6 +168,11 @@ func update_pancreas() -> void:
 			door.close()
 
 	elif GameManager.pancreas_percentage > 50:
+	if GameManager.pancreas_percentage == 0:
+		$"../Node/aviso".play()
+		GameManager.pancreas_buff = false
+		GameManager.pancreas_debuff = true
+	if GameManager.pancreas_percentage > 0:
 		GameManager.pancreas_buff = true
 		GameManager.pancreas_debuff = false
 
@@ -174,29 +191,32 @@ func getRandArraySelection(array: Array[Node], amount: int) -> Array[Node]:
 func update_heart() -> void:
 	# Corazón: Afecta la velocidad del glóbulo
 	
-	if GameManager.heart_percentage < 50:
+	if GameManager.heart_percentage < 0:
+		$"../Node/aviso".play()
 		GameManager.heart_buff = false
 		GameManager.heart_debuff = true
-	if GameManager.heart_percentage >= 50:
+	if GameManager.heart_percentage >= 0:
 		GameManager.heart_buff = true
 		GameManager.heart_debuff = false
 		print("Velocidad reducida por baja salud del corazón")
 	if GameManager.heart_debuff == true and GameManager.SPEED > 175:
 		GameManager.SPEED = GameManager.SPEED * 0.95
-	if GameManager.heart_buff == true and GameManager.SPEED > 175:
-		GameManager.SPEED = GameManager.SPEED * 1.05
+
 	 
 
 func update_brain() -> void:
 	# Cerebro: Reduce la interfaz y puede provocar la muerte
-	if GameManager.brain_percentage < 50:
+	if GameManager.brain_percentage < 15:
+		$"../Node/aviso".play()
 		GameManager.person_visible = false
 		GameManager.labels_visible = false
-	if GameManager.brain_percentage > 50:
+	if GameManager.brain_percentage > 15:
 		GameManager.person_visible = true
 		GameManager.labels_visible = true
 	if GameManager.brain_percentage <= 0:
-		print("¡Game Over! El cerebro ha fallado")
+		GameManager.losing = true
+		get_tree().change_scene_to_file("res://Scenes/end_screen.tscn")
+		GameManager.losing = false
 		
 
 func drain_organ_energy(organ: String) -> void:
@@ -210,23 +230,22 @@ func drain_organ_energy(organ: String) -> void:
 		# Asegura que la energía no baje de 0
 		GameManager.organs_health[organ]["current"] = max(0.0, GameManager.organs_health[organ]["current"])
 
-		# Debug para mostrar la energía restante del órgano
 
 func check_victory(delta: float) -> void:
-	if all_organs_above_50():  # Comprueba si todos los órganos están por encima del 50%
-		time_with_all_organs_above_50 += delta  # Incrementa el tiempo acumulado
-		if time_with_all_organs_above_50 >= victory_time:  # Comprueba si se cumple el tiempo necesario
-			print("¡Victoria! Todos los órganos por encima del 50% durante 30 segundos")
+	if all_organs_active():
+		time_with_all_organs_active += delta
+		if time_with_all_organs_active >= victory_time:
+			GameManager.winning = true
+			get_tree().change_scene_to_file("res://Scenes/end_screen.tscn")
+			GameManager.winning = false
 	else:
-		time_with_all_organs_above_50 = 0.0  # Reinicia el contador si algún órgano cae por debajo del 50%
+		time_with_all_organs_active = 0.0
 
-func all_organs_above_50() -> bool:
-	# Verifica si todos los órganos tienen más del 50% de salud
+func all_organs_active() -> bool:
 	for health in [GameManager.brain_percentage, GameManager.stomach_percentage, GameManager.pancreas_percentage, GameManager.kidneys_percentage, GameManager.heart_percentage, GameManager.liver_percentage]:
-		if health <= 50.0:  # Si alguno está por debajo o igual al 50%
+		if health <= 0:
 			return false
 	return true
-
 ##TIMEOUTS
 func _on_stomach_timer_timeout() -> void:
 	print("Proteina generada")
